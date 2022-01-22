@@ -1,5 +1,5 @@
 ---
-bio: Fill in.
+bio: test.
 education:
   courses:
   - course: PhD in Political Science
