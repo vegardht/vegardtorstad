@@ -3,7 +3,7 @@ bio: test.
 education:
   courses:
   - course: PhD in Political Science
-    institution: European University Institute, Florence
+    institution: European University Institute
     year: 2021
   - course: MSc in International Relations
     institution: Sciences Po, Paris
@@ -43,4 +43,4 @@ title: Vegard Tørstad
 
 Vegard Tørstad is trying to build a website. 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}CV{{< /staticref >}}.
