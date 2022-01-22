@@ -18,7 +18,7 @@ interests:
 - International organizations
 - Legitimacy
 organizations:
-- nrame: BI Norwegian Business School
+- name: BI Norwegian Business School
   url: https://www.bi.no/om-bi/ansatte/institutt-for-rettsvitenskap-og-styring/vegard-heggelund-torstad/
 role: Postdoctoral Fellow
 social:
