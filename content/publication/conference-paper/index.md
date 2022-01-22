@@ -31,7 +31,7 @@ summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere t
   ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 tags:
 - Source Themes
-title: An example conference paper
+title: An example conference paper test
 url_code: https://github.com/wowchemy/wowchemy-hugo-themes
 url_dataset: '#'
 url_pdf: http://eprints.soton.ac.uk/352095/1/Cushen-IMV2013.pdf
