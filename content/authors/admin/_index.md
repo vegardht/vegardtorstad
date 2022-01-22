@@ -41,6 +41,6 @@ superuser: true
 title: Vegard Tørstad
 ---
 
-Vegard Tørstad is a Postdoctoral Fellow at BI Norwegian Business School. 
+Vegard Tørstad is trying to build a website. 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
