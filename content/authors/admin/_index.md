@@ -1,9 +1,9 @@
 ---
-bio: test.
+bio: Fill in.
 education:
   courses:
   - course: PhD in Political Science
-    institution: European University Institute
+    institution: European University Institute, Florence
     year: 2021
   - course: MSc in International Relations
     institution: Sciences Po, Paris
@@ -18,7 +18,7 @@ interests:
 - International organizations
 - Legitimacy
 organizations:
-- name: BI Norwegian Business School
+- nrame: BI Norwegian Business School
   url: https://www.bi.no/om-bi/ansatte/institutt-for-rettsvitenskap-og-styring/vegard-heggelund-torstad/
 role: Postdoctoral Fellow
 social:
@@ -41,6 +41,6 @@ superuser: true
 title: Vegard Tørstad
 ---
 
-Vegard Tørstad is trying to build a website. 
+Vegard Tørstad is a Postdoctoral Fellow at BI Norwegian Business School. 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
