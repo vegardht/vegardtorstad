@@ -1,5 +1,5 @@
 ---
-abstract: "An effective climate agreement should simultaneously foster broad participation, high ambition, and sufficient compliance: this is the \‘effectiveness trilemma\’. While the Paris Agreement has been acclaimed for spurring universal participation, its mitigation mechanism – an unenforced bottom-up framework of voluntary pledges – has been criticized for lacking ambition and incentivizing free riding. Does the Paris Agreement come with effectiveness trade-offs? How ambitious is the Agreement, and how likely is it that countries will comply with it? Using an effectiveness formula to assess ambition, I find that the Paris Agreement constitutes an important improvement compared to business-as-usual. Further, based on evidence from interviews with 21 climate negotiators and observers, the compliance prospects of the Agreement are evaluated as moderately positive. I conclude that the Agreement has the potential to overcome the effectiveness trilemma, and outline policy measures for achieving that objective."
+abstract: "An effective climate agreement should simultaneously foster broad participation, high ambition, and sufficient compliance: this is the effectiveness trilemma. While the Paris Agreement has been acclaimed for spurring universal participation, its mitigation mechanism – an unenforced bottom-up framework of voluntary pledges – has been criticized for lacking ambition and incentivizing free riding. Does the Paris Agreement come with effectiveness trade-offs? How ambitious is the Agreement, and how likely is it that countries will comply with it? Using an effectiveness formula to assess ambition, I find that the Paris Agreement constitutes an important improvement compared to business-as-usual. Further, based on evidence from interviews with 21 climate negotiators and observers, the compliance prospects of the Agreement are evaluated as moderately positive. I conclude that the Agreement has the potential to overcome the effectiveness trilemma, and outline policy measures for achieving that objective."
 author_notes:
 authors:
 - admin
@@ -9,9 +9,8 @@ doi: ""
 featured: true
 projects: []
 publication: '*Environmental Politics, 29*(5)'
-publication_short: ""
+publication_short: 
 publication_types:
-- "2"
 publishDate: "2018-05-01T00:00:00Z"
 slides: 
 summary: 
@@ -19,13 +18,13 @@ tags:
 - Source Themes
 title: "Participation, ambition and compliance: can the Paris Agreement solve the effectiveness trilemma?"
 url_code: 
-url_dataset: ""
+url_dataset: 
 url_pdf: https://www.tandfonline.com/doi/abs/10.1080/09644016.2019.1710322
-url_poster: ""
-url_project: ""
+url_poster: 
+url_project: 
 url_slides: 
-url_source: ""
-url_video: ""
+url_source: 
+url_video: 
 ---
 
 
@@ -42,9 +41,8 @@ doi: ""
 featured: true
 projects: []
 publication: '*Environmental Research Letters, 15*(024021)'
-publication_short: ""
+publication_short: 
 publication_types:
-- "2"
 publishDate: "2018-05-01T00:00:00Z"
 slides: 
 summary:
@@ -52,13 +50,13 @@ tags:
 - Source Themes
 title: "The domestic politics of international climate commitments: which factors explain cross-country variation in NDC ambition?"
 url_code: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ZPDOYT
-url_dataset: ""
+url_dataset: 
 url_pdf: https://iopscience.iop.org/article/10.1088/1748-9326/ab63e0/meta
-url_poster: ""
-url_project: ""
+url_poster: 
+url_project: 
 url_slides: 
-url_source: ""
-url_video: ""
+url_source: 
+url_video: 
 ---
 ---
 abstract: "This paper investigates the empirical relationship between countries’ expressed concerns with fairness and the ambition levels in their pledged contributions (NDCs) to the Paris Agreement, asking the following questions: 1) Are the NDCs of countries who express the most concern with fairness more or less ambitious than those of other countries? 2) Does the relationship between fairness and ambition vary across the three fairness principles: Responsibility, Capability, and Rights (needs)? and 3) Is there a tendency for countries to support the fairness principle that implies the largest emissions share for themselves if that principle were used to allocate emissions across countries? The analysis reveals considerable variation in both fairness concerns and assessed NDC ambitions, but no clear relationship between the two. Countries’ expressed support for fairness principles does not correlate with the ambition levels of their NDCs, whether principles are aggregated or disaggregated. The analysis also finds no evidence that countries strategically advocate the fairness principle that allocates them the largest \“fair\” emissions share."
