@@ -1,8 +1,9 @@
 ---
 abstract: 
 authors:
-date: ""
-doi: ""
+date: 
+doi: 
+active: false
 featured: false
 image:
 links:
@@ -10,24 +11,23 @@ links:
   url: 
 projects:
 - internal-project
-publication: ""
-publication_short: ""
+publication: 
+publication_short: 
 publication_types:
-- "3"
-publishDate: ""
+publishDate: 
 slides: 
 summary: 
 tags:
 - Source Themes
 title: 
 url_code: 
-url_dataset: ''
+url_dataset: 
 url_pdf: 
-url_poster: ''
-url_project: ""
-url_slides: ""
-url_source: ''
-url_video: ''
+url_poster: 
+url_project: 
+url_slides: 
+url_source: 
+url_video: e
 ---
 
 {{% callout note %}}
