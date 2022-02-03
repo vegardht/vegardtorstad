@@ -25,8 +25,7 @@ url_poster:
   url_slides: 
   url_source: 
   url_video: 
-  ---
-  ---
+
   abstract: "Under the Paris Agreement, parties self-determine their mitigation ambition level by submitting Nationally Determined Contributions (NDCs). Extant assessments find that the collective ambition of current pledges is not line with the Agreement's goals and that individual ambition varies greatly across countries, but there have not been attempts at explaining this variation. This paper identifies several potential drivers of national climate ambition, and tests whether these can account for differences in the ambition level of countries' mitigation targets under the Paris Agreement. After outlining theorized relationships between a set of domestic political characteristics and climate policy ambition, regression analysis is used to assess the effects of different potential drivers across a dataset of 170 countries. We find that a country's level of democracy and vulnerability to climate change have positive effects on NDC ambition, while coal rent and GDP have negative effects. Our findings suggest that these objective factors are more important than subjective factors, while the most influential subjective factor is the cosmopolitanism-nativism value dimension."
 author_notes:
   authors:
@@ -55,8 +54,7 @@ url_poster:
   url_slides: 
   url_source: 
   url_video: 
-  ---
-  ---
+ 
   abstract: "This paper investigates the empirical relationship between countries’ expressed concerns with fairness and the ambition levels in their pledged contributions (NDCs) to the Paris Agreement, asking the following questions: 1) Are the NDCs of countries who express the most concern with fairness more or less ambitious than those of other countries? 2) Does the relationship between fairness and ambition vary across the three fairness principles: Responsibility, Capability, and Rights (needs)? and 3) Is there a tendency for countries to support the fairness principle that implies the largest emissions share for themselves if that principle were used to allocate emissions across countries? The analysis reveals considerable variation in both fairness concerns and assessed NDC ambitions, but no clear relationship between the two. Countries’ expressed support for fairness principles does not correlate with the ambition levels of their NDCs, whether principles are aggregated or disaggregated. The analysis also finds no evidence that countries strategically advocate the fairness principle that allocates them the largest \“fair\” emissions share."
 author_notes:
   authors:
