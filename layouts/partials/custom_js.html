@@ -1,11 +1,4 @@
 {{ if eq hugo.Environment "production" }}
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-{{ if (.Params.publication_types) and (ne (index .Params.publication_types 0) "0") }}
-    {{ if and (.Params.publication_types) (ne (index .Params.publication_types 0) "0") }}
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-
-
 {{end}}
