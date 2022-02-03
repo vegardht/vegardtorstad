@@ -5,13 +5,13 @@ authors:
 - admin
 
 date: "2020"
-doi: ""
+doi: "doi/abs/10.1080/09644016.2019.1710322"
 featured: true
 projects: []
 publication: '*Environmental Politics, 29*(5)'
 publication_short: 
 publication_types:
-publishDate: "2018-05-01T00:00:00Z"
+publishDate: "2020"
 slides: 
 summary: 
 tags:
@@ -40,10 +40,10 @@ date: "2020"
 doi: ""
 featured: true
 projects: []
-publication: '*Environmental Research Letters, 15*(024021)'
+publication: "*Environmental Research Letters, 15*(024021)"
 publication_short: 
 publication_types:
-publishDate: "2018-05-01T00:00:00Z"
+publishDate: "2020"
 slides: 
 summary:
 tags:
@@ -64,31 +64,31 @@ author_notes:
 authors:
 - Håkon Sælen
 - admin
-- Tobias D. Nielsen
+- Tobias D Nielsen
 - Christian Holz
 
 date: "2019"
 doi: ""
 featured: false
 projects: []
-publication: '*Environmental Science & Policy, 101*'
-publication_short: ""
+publication: "*Environmental Science & Policy, 101*"
+publication_short: 
 publication_types:
 - "2"
-publishDate: "2018-05-01T00:00:00Z"
+publishDate: "2019"
 slides: 
 summary: 
 tags:
 - Source Themes
 title: "Fairness conceptions and self-determined mitigation ambition under the Paris Agreement: Is there a relationship?"
 url_code:
-url_dataset: ""
+url_dataset: 
 url_pdf: https://www.sciencedirect.com/science/article/abs/pii/S1462901119302461
-url_poster: ""
-url_project: ""
+url_poster: 
+url_project: 
 url_slides: 
-url_source: ""
-url_video: ""
+url_source: 
+url_video: 
 ---
 
 
@@ -101,26 +101,26 @@ authors:
 
 date: "2018"
 doi: ""
-featured: false
+featured: true
 projects: []
-publication: '*Climate Policy, 18*(5)'
+publication: "*Climate Policy, 18*(5)""
 publication_short: ""
 publication_types:
 - "2"
-publishDate: "2018-05-01T00:00:00Z"
+publishDate: "2018"
 slides: 
 summary: 
 tags:
 - Source Themes
-title: "Fairness in the climate negotiations: what explains variation in parties’ expressed conceptions?"
+title: "Fairness in the climate negotiations: what explains variation in parties\’ expressed conceptions?"
 url_code:
-url_dataset: ""
+url_dataset: 
 url_pdf: https://www.tandfonline.com/doi/full/10.1080/14693062.2017.1341372?scroll=top&needAccess=true
-url_poster: ""
-url_project: ""
+url_poster: 
+url_project: 
 url_slides: 
-url_source: ""
-url_video: ""
+url_source: 
+url_video: 
 ---
 
 {{% callout note %}}
