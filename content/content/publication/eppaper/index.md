@@ -1,15 +1,15 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: "Participation, ambition and compliance: can the Paris Agreement solve the effectiveness trilemma?"
+title: "Eppaper"
 subtitle: ""
 summary: ""
-authors: [admin]
+authors: []
 tags: []
 categories: []
-date: 2020
-lastmod: 2022-02-08T10:52:22+01:00
-featured: true
+date: 2022-02-08T13:23:08+01:00
+lastmod: 2022-02-08T13:23:08+01:00
+featured: false
 draft: false
 
 # Featured image
