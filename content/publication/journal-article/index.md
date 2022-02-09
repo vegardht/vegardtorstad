@@ -2,7 +2,6 @@
 title: "Participation, Ambition and Compliance: Can the Paris Agreement Solve the Effectiveness Trilemma?"
 authors:
 - admin
-- Robert Ford
 date: "2013-07-01T00:00:00Z"
 doi: ""
 
