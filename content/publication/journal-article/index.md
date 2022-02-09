@@ -1,5 +1,5 @@
 ---
-title: "Participation, Ambition and Compliance: Can the Paris Agreement Solve the Effectiveness Trilemma?"
+title: "Participation, Ambition and Compliance Can the Paris Agreement Solve the Effectiveness Trilemma?"
 authors:
 - admin
 author_notes:
