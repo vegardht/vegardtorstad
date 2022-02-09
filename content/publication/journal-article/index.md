@@ -1,7 +1,7 @@
 ---
 title: "Participation, Ambition and Compliance Can the Paris Agreement Solve the Effectiveness Trilemma?"
 authors:
-- admin
+- Vegard Tørstad
 author_notes:
 date: "2020-09-01T00:00:00Z"
 doi: "10.1080/09644016.2019.1710322"
