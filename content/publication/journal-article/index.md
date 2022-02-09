@@ -1,13 +1,10 @@
 ---
-title: "An example journal article"
+title: "Participation, Ambition and Compliance: Can the {{Paris Agreement}} Solve the Effectiveness Trilemma?"
 authors:
 - admin
-- Robert Ford
 author_notes:
-- "Equal contribution"
-- "Equal contribution"
 date: "2015-09-01T00:00:00Z"
-doi: ""
+doi: "10.1080/09644016.2019.1710322"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2017-01-01T00:00:00Z"
@@ -19,13 +16,12 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Journal of Source Themes, 1*(1)"
+publication: "*Environmental Politics, 29*(5)"
 publication_short: ""
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: "An effective climate agreement should simultaneously foster broad participation, high ambition, and sufficient compliance: this is the `effectiveness trilemma'. While the Paris Agreement has been acclaimed for spurring universal participation, its mitigation mechanism \textendash{} an unenforced bottom-up framework of voluntary pledges \textendash{} has been criticized for lacking ambition and incentivizing free riding. Does the Paris Agreement come with effectiveness trade-offs? How ambitious is the Agreement, and how likely is it that countries will comply with it? Using an effectiveness formula to assess ambition, I find that the Paris Agreement constitutes an important improvement compared to business-as-usual. Further, based on evidence from interviews with 21 climate negotiators and observers, the compliance prospects of the Agreement are evaluated as moderately positive. I conclude that the Agreement has the potential to overcome the effectiveness trilemma, and outline policy measures for achieving that objective."
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 
 tags:
 - Source Themes
@@ -34,8 +30,8 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: http://arxiv.org/pdf/1512.04133v1
-url_code: 'https://github.com/wowchemy/wowchemy-hugo-themes'
+url_pdf: 
+url_code: 
 url_dataset: ''
 url_poster: ''
 url_project: ''
@@ -46,7 +42,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)'
+  caption: 
   focal_point: ""
   preview_only: false
 
