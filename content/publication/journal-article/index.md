@@ -1,10 +1,10 @@
 ---
-title: "Participation, Ambition and Compliance Can the Paris Agreement Solve the Effectiveness Trilemma?"
+active: false
+title:
 authors:
-- Vegard Tørstad
 author_notes:
-date: "2020-09-01T00:00:00Z"
-doi: "10.1080/09644016.2019.1710322"
+date: 
+doi: 
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2017-01-01T00:00:00Z"
@@ -16,7 +16,7 @@ publishDate: "2017-01-01T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Environmental Politics, 29*(5)"
+publication: 
 publication_short: ""
 
 abstract: 
