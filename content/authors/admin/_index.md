@@ -41,6 +41,8 @@ superuser: true
 title: Vegard Tørstad
 ---
 
-Vegard Tørstad is a Postdoctoral Fellow at BI Norwegian Business School. 
+I am a Postdoctoral Fellow at BI Norwegian Business School. My interest include environmental politics, global governance, and legitimacy. 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+Before joining BI, I completed my PhD at the European University Institute.
+
+{{< icon name="download" pack="fas" >}} {{< staticref "../files/cv_torstad_23sep21.pdf" "newtab" >}}Download my CV{{< /staticref >}} for more information.
