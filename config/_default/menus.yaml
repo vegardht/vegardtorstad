@@ -8,10 +8,10 @@ main:
     url: '#projects'
     weight: 30
   - name: CV
-    url: {{< staticref "../files/cv_torstad_23sep21.pdf" "newtab" >}}
+    url: 'static/files'
     weight: 40
   - name: Publications
-    url: '#publication'
+    url: 'publication/''
     weight: 50
   - name: Contact
     url: '#contact'
