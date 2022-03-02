@@ -11,15 +11,15 @@ education:
   - course: BA in Political Science
     institution: University of Oslo
     year: 2011
-email: "vegard.h.torstad@bi.no"
+email: "v.h.torstad@stv.uio.no"
 highlight_name: true
 interests:
 - Environmental politics
-- International organizations
+- Global governance
 - Legitimacy
 organizations:
-- name: BI Norwegian Business School
-  url: https://www.bi.no/om-bi/ansatte/institutt-for-rettsvitenskap-og-styring/vegard-heggelund-torstad/
+- name: University of Oslo
+  url: 
 role: Postdoctoral Fellow
 social:
 - icon: envelope
@@ -41,8 +41,8 @@ superuser: true
 title: Vegard Tørstad
 ---
 
-I am a Postdoctoral Fellow at BI Norwegian Business School. My interest include environmental politics, global governance, and legitimacy. 
+I am a Postdoctoral Fellow at the Department of Political Science, University of Oslo. My interest include environmental politics, global governance, and legitimacy. 
 
-Before joining BI, I completed my PhD at the European University Institute.
+I completed my PhD at the European University Institute in 2021.
 
 {{< icon name="download" pack="fas" >}} {{< staticref "../files/cv_torstad_23sep21.pdf" "newtab" >}}Download my CV{{< /staticref >}} for more information.

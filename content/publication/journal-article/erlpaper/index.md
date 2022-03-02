@@ -9,7 +9,6 @@ url_code: https://doi.org/10.7910/DVN/ZPDOYT
 url_dataset: https://doi.org/10.7910/DVN/ZPDOYT
 url_pdf: https://iopscience.iop.org/article/10.1088/1748-9326/ab63e0/meta
 categories: 
-- Parties
 
 tags:
 - Source Themes
