@@ -21,7 +21,7 @@ url: https://vegardtorstad.github.io
 
 # repository: grantmcdermott/grantmcdermott.github.io
 github: [metadata]
-email: vegard.h.torstad@bi.no
+email: v.h.torstad@stv.uio.no
 description: >- # this means to ignore newlines in the text below
   Vegard Tørstad's personal website.
 twitter_username: vegard.torstad
@@ -74,7 +74,7 @@ author:
       url: "https://vegardtorstad.github.io"
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:vegard.h.torstad@bi.no"
+      url: "mailto:v.h.torstad@stv.uio.no"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/grant_mcdermott"
