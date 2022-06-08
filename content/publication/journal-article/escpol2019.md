@@ -1,6 +1,6 @@
 
 ---
-title: "The domestic politics of international climate commitments: which factors explain cross-country variation in NDC ambition?"
+title: "Fairness conceptions and self-determined mitigation ambition under the Paris Agreement: Is there a relationship?"
 authors:
 - Håkon Sælen
 - admin
@@ -8,7 +8,6 @@ authors:
 - Tobias D. Nielsen
 publication: "*Environmental Science & Policy* 101: 245-254"
 date: "2019-02-11"
-url_code: https://linkinghub.elsevier.com/retrieve/pii/S1462901119302461
 url_dataset: 
 url_pdf: https://linkinghub.elsevier.com/retrieve/pii/S1462901119302461
 categories: 
