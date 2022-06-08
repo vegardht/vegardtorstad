@@ -41,7 +41,7 @@ superuser: true
 title: Vegard Tørstad
 ---
 
-I am a Postdoctoral Fellow at the Department of Political Science, University of Oslo. My interest include environmental politics, global governance, and legitimacy. 
+I am a Postdoctoral Fellow/Assistant Professor at the Department of Political Science, University of Oslo. My interests include environmental politics, global governance, and legitimacy. 
 
 I completed my PhD at the European University Institute in 2021.
 
