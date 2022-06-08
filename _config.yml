@@ -125,7 +125,7 @@ defaults:
 
 [[menu.main]]
 name = "Publications"
-url = "/publications/"
+url = "/publication/"
 weight = 1
   
 [[menu.main]]
