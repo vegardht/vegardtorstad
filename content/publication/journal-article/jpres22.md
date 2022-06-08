@@ -13,6 +13,8 @@ categories:
 tags:
 - Source Themes
 featured: true
+---
+
 
 ## Abstract: 
 "Can transparency enhance the legitimacy of international institutions? As transparency has become a widely applied procedural standard in international politics, a range of institutions have implemented transparency reforms under the presumption that increased transparency can elicit support among relevant audiences. This paper
