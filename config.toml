@@ -1,6 +1,6 @@
-baseurl = "https://resulumit.com/"
-title = "Resul Umit"
-author = "Resul Umit"
+baseurl = "https://vegardtorstad.netlify.app/
+title = "Vegard Tørstad"
+author = admin
 canonifyurls = true
 relativeurls = false
 paginate = 10
