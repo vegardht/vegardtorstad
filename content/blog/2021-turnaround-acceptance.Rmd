@@ -1,0 +1,113 @@
+---
+date: 2021-07-06
+slug: polisci-turnaround-acceptance
+title: "Turnaround times and acceptance rates in political science journals"
+output: html_document
+categories:
+        - journals
+        - web scraping
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(kableExtra)
+
+df <- read_csv("2021-turnaround-acceptance/tf_metrics.csv")
+        
+
+```
+
+
+It would be great if <a href="https://resulumit.shinyapps.io/psjournals/" target="_blank">the psjournals app</a> included information on turnaround times and acceptance rates in political science journals. This is one of the most common requests that I receive from its users, and I could not agree more.
+
+These statistics are unfortunately unavailable for many journals.
+
+The ones published by Taylor & Francis are now a welcome exception. The publisher has recently started to provide statistics on journal turnaround times and acceptance rates on its website --- in separate sections for individual journals. 
+
+This blogpost brings these statistics together, collecting the data with the code <a href="https://gist.github.com/resulumit/05f5186f2c7abd7efed0e05bc64a358e" target="_blank">available on GitHub</a>.
+
+All turnaround times indicate the median, measured in days. Further details on measurement are available on <a href="https://authorservices.taylorandfrancis.com/publishing-your-research/choosing-a-journal/journal-metrics/#" target="_blank">the publisher's website</a>. 
+
+See also the graphs that summarise the statistics [at the end of the post](#descriptive-graphs).
+
+```{r, table}
+df %>% rename(Journal = journal, "Including desk rejects" = "first_decision",
+              "Excluding desk rejects" = "first_review", 
+              "Acceptance to online" = "online_publication", 
+              "Acceptance rate" = acceptance_rate) %>% 
+       kable(format = "html", escape = FALSE, align = "l") %>%
+  kable_styling("striped") %>%
+  add_header_above(c("", "Submission to first decision" = 2, "", ""))
+
+```
+
+<br>
+
+### Descriptive graphs
+
+Here are two graphs that describe the data in the table above. The first is for the statistics on speed while the latter plots the acceptance variable. 
+
+```{r, turnaround}
+
+df %>% pivot_longer(cols = first_decision:online_publication,
+                    names_to = "type", values_to = "statistic") %>%
+        mutate(type = factor(type, levels = c("first_decision", "first_review", "online_publication"),
+                              labels = c("Including desk rejects", "Excluding desk rejects", "Acceptance to online"))) %>% 
+        ggplot(aes(x = statistic, color = type, fill = type)) +
+        geom_density(alpha = 0.3) +
+        theme_light() +
+        labs(y = "Density\n", x = "\nMedian number of days") +
+        theme(panel.background = element_rect(fill = "#faf9f9"),
+              plot.background = element_rect(fill = "#faf9f9"),
+              legend.background = element_rect(fill = "#faf9f9"),
+              axis.line = element_line(colour = "black", size = 0.25),
+              panel.grid.major = element_line(colour = "grey95", size = 0.25),
+              panel.grid.minor = element_line(colour = "grey95", size = 0.125),
+              panel.border = element_rect(fill = NA, colour = "grey95", size = 0.25),
+              plot.title = element_text(lineheight = .8, hjust = 0),
+              strip.text = element_text(colour = "black", size=11),
+              strip.background = element_rect(fill= "faf9f9", color= "faf9f9"),
+              legend.position = "bottom",
+              legend.title = element_blank()) +
+        scale_fill_discrete(name = "") +
+        scale_color_discrete(name = "")
+
+
+```
+
+<br>
+
+```{r, acceptance}
+
+df %>% mutate(acceptance_rate = as.numeric(str_remove(acceptance_rate, "%"))) %>%
+    ggplot(aes(x = acceptance_rate)) +
+        geom_density(alpha = 0.3) +
+        theme_light() +
+        labs(y = "Density\n", x = "\nAcceptance Rate") +
+        theme(panel.background = element_rect(fill = "#faf9f9"),
+              plot.background = element_rect(fill = "#faf9f9"),
+              legend.background = element_rect(fill = "#faf9f9"),
+              axis.line = element_line(colour = "black", size = 0.25),
+              panel.grid.major = element_line(colour = "grey95", size = 0.25),
+              panel.grid.minor = element_line(colour = "grey95", size = 0.125),
+              panel.border = element_rect(fill = NA, colour = "grey95", size = 0.25),
+              plot.title = element_text(lineheight = .8, hjust = 0),
+              strip.text = element_text(colour = "black", size=11),
+              strip.background = element_rect(fill= "faf9f9", color= "faf9f9"),
+              legend.position = "bottom",
+              legend.title = element_blank()) +
+    scale_x_continuous(labels = function(x) paste0(x, "%"))
+
+```
+
+
+<style type="text/css">
+
+.cname {
+    border-bottom: 1px dotted;
+}
+
+</style>

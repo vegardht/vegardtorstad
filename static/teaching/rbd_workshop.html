@@ -1,0 +1,4434 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Creating Academic Websites with R</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+name: title-slide
+class: inverse, center, middle
+
+
+
+&lt;style type="text/css"&gt;
+
+.hljs-github .hljs {
+    background: #e5e5e5;
+}
+
+.inline-c, remark-inline-code {
+   background: #e5e5e5;
+   border-radius: 3px;
+   padding: 4px;
+   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+}
+
+
+.yellow-h{
+   background: #ffff88;
+}
+
+
+.out-t, remark-inline-code {
+   background: #9fff9f;
+   border-radius: 3px;
+   padding: 4px;
+   
+}
+
+.pull-left-c {
+    float: left;
+    width: 58%;
+    
+}
+
+.pull-right-c {
+    float: right;
+    width: 38%;
+    
+}
+
+.medium {
+    font-size: 75%
+    
+}
+
+.small {
+    font-size: 50%
+    }
+
+.action {
+    background-color: #f2eecb;
+  
+}
+
+
+&lt;/style&gt;
+
+# Creating Academic Websites with R
+
+&lt;br&gt;
+
+## Resul Umit
+## April 2021
+
+.footnote[
+
+[Skip intro &amp;mdash; To the contents slide](#contents-slide). &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;a href="mailto:resuluy@uio.no?subject=R Blogdown workshop"&gt;I can teach this workshop at your institution &amp;mdash; Email me&lt;/a&gt;.
+
+]
+
+
+---
+## Who am I?
+
+Resul Umit
+
+- post-doctoral researcher at the University of Oslo
+
+- teaching and studying representation, elections, and parliaments
+    - [a recent publication](https://doi.org/10.1177%2F1478929920967588):
+    Parliamentary communication allowances do not increase electoral turnout or incumbents’ vote share
+
+--
+
+&lt;br&gt;
+
+- teaching workshops, also on
+
+  - [writing reproducible research papers](https://resulumit.com/blog/rmd-workshop/)
+  - [version control and collaboration](https://resulumit.com/teaching/git_workshop.html)
+  - [working with Twitter data](https://resulumit.com/syllabi/21spring_twtr.pdf)
+  - [automated web scraping](https://resulumit.com/teaching/scrp_workshop.html)
+    
+--
+
+&lt;br&gt;
+
+- more information available at [resulumit.com](https://resulumit.com/)
+
+---
+## My First Website
+
+Using WordPress
+
+- opened just before starting my PhD in 2013, at [wordpress.com](https://wordpress.com/)
+
+- at first, with rare updates
+    - none based on data
+    - required getting used to at every login
+        - a system that I used only for my website
+
+- then, with more frequent blogposts
+    - frustrations with posts based on data 
+        - slow to write and edit    
+&lt;br&gt;
+    - still required getting used to at every login
+    
+---
+## My Current Website
+
+Using R
+
+- migrated from WordPress in 2018
+
+- ~~frustrations with blogposts based on data~~ 
+    - ~~slow to write and edit~~
+    - `blogdown` ([Xie et al., 2021a](https://cran.r-project.org/web/packages/blogdown/index.html)) makes quantitative academic writing efficient
+
+- ~~required getting used to at every login~~
+    - ~~a system used only for website updates~~
+    - a system that I use everyday for other tasks
+        - cleaning and analysing data, writing results for publication
+
+---
+## The Workshop &amp;mdash; Overview
+
+- One full day, on how to create websites for academics with R
+
+  - building a minimal working site
+  - version-controlling and deploying it
+  - adding new content to the site
+
+--
+
+&lt;br&gt;
+
+- Based on personalising the [example website](https://academic-demo.netlify.app/) of the `Academic` theme, with two options
+  
+  - using real material, creating your website now
+  - using mock material, re-creating the [demonstration website of the workshop](https://janejdoe.netlify.app/)&lt;sip&gt;*&lt;/sup&gt;
+     - as a practice for creating your website afterwards
+
+
+.footnote[
+
+&lt;sip&gt;*&lt;/sup&gt; I will refer to this demonstration as &lt;span style="background-color: #ffff88;"&gt;JJD's website&lt;/span&gt; here, to distinguish it from the example website of the theme.
+
+]
+---
+## The Workshop &amp;mdash; Overview
+
+- One full day, on how to create websites for academics with R
+
+  - building a minimal working site
+  - version-controlling and deploying it
+  - adding new content to the site
+
+&lt;br&gt;
+
+- Based on personalising the [example website](https://academic-demo.netlify.app/) of the `Academic` theme, with two options
+  
+  - using real material, creating your website now
+  - using mock material, re-creating the [demonstration website of the workshop](https://janejdoe.netlify.app/)
+     - as a practice for creating your website afterwards
+
+&lt;br&gt;
+
+- Designed for researchers with basic knowledge of R programming language
+
+  - ability to work with R and RStudio will be very helpful
+      - but not absolutely necessary &amp;mdash; these skills can be developed after the workshop as well    
+
+---
+## The Workshop &amp;mdash; Motivations
+
+- Academic outreach
+
+  - make your work easily accessible to other academics
+    - keep all academic work at one address
+    - offer versions without paywall
+          - e.g., pre-prints
+
+--
+
+&lt;br&gt;
+
+- Public outreach
+
+  - make your work easily accessible to non-academics, in two senses
+    - by removing paywalls
+        - e.g., pre-prints     
+&lt;br&gt;          
+    - by writing for non-academic audience in mind
+          - e.g., blogposts
+            
+---
+## The Workshop &amp;mdash; Motivations &amp;mdash; Impression Management
+
+- What do people see when they google your name?
+
+  - google your name now, and scroll through
+     - is this exactly what you want people to see?
+        
+--
+
+&lt;br&gt;
+          
+- Websites are an impression management tool   
+&lt;br&gt;
+  - manage your online presence yourself
+      - otherwise, others --- e.g., your (past and present) university --- will     
+&lt;br&gt;
+  - provide a concrete example of your skills
+          - e.g., working with R, Git
+        
+---
+## The Workshop &amp;mdash; Aims
+
+- To leave you with a website
+    
+  - working, continuously deployed from RStudio
+  - albeit minimal and/or mock    
+
+--
+
+&lt;br&gt;
+
+
+- To make you aware what else is possible
+
+  - so that you can update your website after the workshop
+  - awareness of what is possible, `Google`, and perseverance are all you need
+
+        
+---
+## The Workshop &amp;mdash; Limitations
+
+This workshop does not cover
+
+- dynamic websites
+
+   - it covers [static websites](https://en.wikipedia.org/wiki/Static_web_page), as generated by `Hugo`, as integrated into R by `blogdown`
+       - all visitors see the same website, as last generated
+       - this setting offers what most academics would need
+
+--
+
+- structural (HMTL, CSS, or JavaScript) customisation
+
+  - e.g., changing the entire appearance and functionality of a theme, writing a new one
+  - switching to another `Hugo` theme is an option
+        - see 300+ options at [https://themes.gohugo.io/](https://themes.gohugo.io/)
+     
+--
+
+- multi-language or multi-author websites
+
+  - these are possible, and well documented elsewhere
+      - e.g, for multi-lingual websites, see [https://sourcethemes.com/academic/docs/language/](https://sourcethemes.com/academic/docs/language/)
+      - e.g., for multi-author websites, see my [workshop on collaboration](https://resulumit.com/teaching/git_workshop.html#1)
+        
+---
+## The Workshop &amp;mdash; Organisation
+
+- ~~Sit in groups of two~~
+
+  - participants learn as much from their partner as from instructors
+  - play the role of co-authors
+  
+--
+
+&lt;br&gt;
+
+- Type, rather than copy and paste, the code that you will find on these slides
+
+  - typing is a part of the learning process
+  - but do copy the text from [JJD's website](https://janejdoe.netlify.app/), if you are re-creating it
+  
+--
+
+&lt;br&gt;
+
+- When you have a question
+
+  - ~~ask your partner~~
+  - ~~google together~~
+  - turn your microphone on and ask, or
+  - type it in the chat
+
+---
+class: action
+
+## The Workshop &amp;mdash; Organisation &amp;mdash; Slides&lt;sup&gt;*&lt;/sup&gt;
+
+- Slides with this background colour indicate that your action is required, for
+  - setting the workshop up
+     - e.g., installing software    
+&lt;br&gt;
+    - personalising the website
+       - e.g., putting in your own contact details    
+&lt;br&gt;
+    - completing the exercises
+       - e.g., adding content to your website    
+&lt;br&gt;       
+- Some of these slides have countdown timers
+    - for guidance only
+    
+.footnote[
+
+&lt;sup&gt;*&lt;/sup&gt; These slides are, and will remain, available at  &lt;https://resulumit.com/teaching/rbd_workshop.html&gt;.
+
+] 
+
+<div class="countdown" id="timer_60b87b15" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## The Workshop &amp;mdash; Organisation &amp;mdash; Slides
+
+- Codes and texts that go in as input .inline-c[appear as such &amp;mdash; in a different font, on gray background]
+    - long codes and texts will have their own line(s)
+    
+
+```r
+ggplot(data = df, mapping = aes(x = wt, y = mpg, color = cyl)) +
+  geom_point(size = 2) +
+  scale_colour_gradient(name = "Cylinders", high = "#132B43", low = "#56B1F7",
+                        breaks = c(4, 6, 8)) +
+  theme_bw() +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 20),
+        legend.title = element_text(size = 20),
+        legend.text = element_text(size = 20)) +
+  labs(x = "\nWeight", y = "Miles/Gallon\n") 
+```
+
+---
+## The Workshop &amp;mdash; Organisation &amp;mdash; Slides
+
+- Codes and texts that go in as input .inline-c[appear as such &amp;mdash; in a different font, on gray background]
+    - long codes and texts will have their own line(s)
+
+&lt;br&gt;
+
+- Results that come out as output .out-t[appear as such &amp;mdash; in the same font, on green background]
+    - except very obvious results, such as figures and tables
+
+--
+&lt;br&gt;
+
+- Specific sections are .yellow-h[highlighted yellow as such] for emphasis
+    - these could be for anything &amp;mdash; codes and texts in input, results in output, and/or texts on slides
+
+--
+&lt;br&gt;
+
+- Names for items such as files, folders, variables are in `typefont`.
+    - typefont with a trailing slash indicates a directory, known also as folder
+        - e.g., `content/` is a directory
+
+---
+## The Workshop &amp;mdash; Contents
+
+.pull-left[
+
+[Part 1. Getting the Tools Ready](#part1)
+   - e.g., installing software
+
+[Part 2. Website Front End](#part2)
+   - e.g., the look in a browser
+
+[Part 3. Website Back End](#part3)
+   - e.g., the look in RStudio
+
+[Part 4. Configuration](#part4)
+   - e.g., overall organisation and settings
+
+]
+
+--
+name: contents-slide
+
+.pull-right[
+
+   
+[Part 5. Managing Structure](#part5)
+   - e.g., organisation of pages and sections
+
+[Part 6. Deployment](#part6)
+   - e.g., publishing your website online 
+
+[Part 7. Adding Content](#part7)
+   - e.g., adding text and images
+   
+[Part 8. R Markdown](#part8)
+   - e.g., adding tables and figures
+
+]
+
+.footnote[
+
+[Back to the title slide](#title-slide). [Forward to the bibliography section](#references). 
+
+]
+
+---
+name: part1
+class: inverse, center, middle
+
+# Part 1. Getting the Tools Ready
+
+---
+class: action
+
+## Git &amp;mdash; Download from the Internet and Install
+
+- Git is a software that
+
+   - keeps track of versions of a set of files
+   - is .yellow-h[local] to you, the records are kept on your computer
+   - is free
+
+--
+
+&lt;br&gt;
+
+- To get this software
+
+   - on Windows, install 'Git for Windows', downloading from [https://gitforwindows.org](https://gitforwindows.org/)
+       - select 'Git from the command line and also from 3rd-party software'   
+&lt;br&gt;
+   - on Mac, install 'Git', downloading from [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+---
+class: action
+
+## GitHub &amp;mdash; Open an Account
+
+- GitHub is a hosting service, or a website, that
+
+  - keeps a copy of the versions created by Git
+  - is .yellow-h[remote] to you, like the Dropbox website
+  - is, mostly, free
+  
+--
+
+&lt;br&gt;
+
+- To sign up for this service
+
+   - register an account at [https://github.com](https://github.com/)
+       - registering an account is free
+       - usernames are public, editable
+           - either choose an anonymous username for now
+           - or choose one carefully &amp;mdash; it becomes a part of users' online presence
+
+---
+class: action
+
+## Netlify &amp;mdash; Open an Account
+
+- Netlify is a hosting service that
+
+  - builds your website out of individual files, using `Hugo`
+  - hosts your website on its servers, making it available online
+  - is, mostly, free
+
+--
+
+&lt;br&gt;
+
+- To sign up for this service
+
+   - register an account at [https://www.netlify.com](https://www.netlify.com/)
+       - registering an account is free
+       - you can use your GitHub account to register
+        
+---
+class: action
+
+## R and RStudio &amp;mdash; Download from the Internet and Install
+
+- R is a programming language that
+
+  - does or facilitates many things, e.g., creating a website
+  - provides the engine for RStudio &amp;mdash; an IDE, or dashboard
+  - is free
+
+--
+
+&lt;br&gt;  
+
+- Download R from [https://cloud.r-project.org](https://cloud.r-project.org)
+    - choose the version for your operating system
+
+&lt;br&gt;
+
+- Download RStudio from [https://rstudio.com/products/rstudio/download](https://rstudio.com/products/rstudio/download)
+    - choose the free version
+
+---
+class: action
+
+## R Packages &amp;mdash; Install from within RStudio
+
+Install the following R packages, using the code below
+
+
+```r
+install.packages(c("blogdown", "dplyr", "ggplot2"))
+```
+
+&lt;br&gt;
+
+- `blogdown` ([Xie et al., 2021a](https://cran.r-project.org/web/packages/blogdown/index.html)), for creating websites
+    - comes with, among others, the `knitr` package ([Xie, 2021](https://cran.r-project.org/web/packages/knitr/index.html)), which we will use for tabling data     
+&lt;br&gt;
+- `dplyr` ([Wickham et al., 2021](https://cran.r-project.org/web/packages/dplyr/index.html)), for data manipulation
+    - alternatives: e.g., `base`, `data.table` ([Dowle &amp; Srinivasan, 2021](https://cran.r-project.org/web/packages/data.table/index.html))    
+&lt;br&gt;
+- `ggplot2` ([Wickham et al., 2020b](-https://cran.r-project.org/web/packages/ggplot2/index.html)), for plotting data
+    - alternatives: e.g., `base`, `plotly` ([Sievert et al., 2021](https://cran.r-project.org/web/packages/plotly/index.html))
+
+---
+## `blogdown` &amp;mdash; Overview
+
+- A relatively small R package, to facilitate creating websites
+    - enables a seamless workflow, all within RStudio 
+    - does not build websites itself
+
+--
+
+- Builds upon other software
+    - most importantly `Hugo` for generating sites
+    - (R) Markdown for text formatting
+    - `pandoc` for transforming Markdown files into HTML
+    - `YAML` syntaxes for configuration and front matter
+
+--
+
+- Has a confusing name
+    - it is not necessarily about blogs, but general-purpose websites
+
+--
+
+- Comes with a book
+   - *blogdown: Creating Websites with R Markdown* ([Xie et al., 2021b](https://bookdown.org/yihui/blogdown/))
+       - open access at [https://bookdown.org/yihui/blogdown/](https://bookdown.org/yihui/blogdown/)
+       - also has a confusing name, as R Markdown is not central to creating websites
+
+---
+## `blogdown` &amp;mdash; Addins
+
+.pull-left-c[
+
+- Observe that, after installing `blogdown`, RStudio includes six new addins
+    - e.g., `Serve` `Site`
+    - mouse over in RStudio to read their definitions
+
+- Each addin has a corresponding function
+    - e.g., `blogdown::serve_site()`&lt;sup&gt;*&lt;/sup&gt; 
+   
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/addins.png)
+
+]
+
+.footnote[
+
+[*] Not all `blogdown` functions are exported. In practice, this means we would need to call `blogdown`.yellow-h[:::] (with the triple-colon operator) for some functions, such `blogdown:::touch_file()`.
+
+]
+
+---
+## `blogdown` &amp;mdash; Important Fuctions
+
+- `blogdown` provides functions to facilitate interacting with `Hugo` from within R, including
+    - `blogdown::install_hugo()`
+    - `blogdown::serve_site()`
+
+&lt;br&gt;
+
+- It is customary to call `blogdown` functions with the double colon operator .yellow-h[::]
+   - the usual way would also work
+      - i.e., load `library(blogdown)` first
+
+&lt;br&gt;
+
+- To see the list of exported functions, type `blogdown::` in the `Console`
+    - hit the `tab` key on your keyboard
+
+---
+class: action
+
+## `Hugo` &amp;mdash; Install from within RStudio
+
+Install `Hugo`, with the following code
+
+
+```r
+blogdown::install_hugo()
+```
+
+- `Hugo` is a .yellow-h[static] website generator
+    - static websites are a collection of pages
+    - pages display the same information to all visitors
+    
+- It comes with 
+    - a detailed documentation, available at &lt;https://gohugo.io/documentation/&gt;
+    - 300+ themes, available at &lt;https://themes.gohugo.io/&gt;
+        - we will be working with the `Academic` theme
+        
+---
+## Other Resources &amp;mdash; For Later
+ 
+- R Markdown: The Definitive Guide (Xie et al., 2019)
+
+   - open access at [https://bookdown.org/yihui/rmarkdown](https://bookdown.org/yihui/rmarkdown/)
+
+- R Markdown Cheat Sheet
+
+   - follow from the RStudio menu
+
+&gt; `Help -&gt; Cheatsheets -&gt; R Markdown Cheat Sheet` 
+
+- Pandoc User's Guide
+
+   - available at [https://pandoc.org/MANUAL.html](https://pandoc.org/MANUAL.html)
+
+- R for Data Science (Wickham and Grolemund, 2019)
+  
+   - open access at [https://r4ds.had.co.nz](https://r4ds.had.co.nz/)
+   
+---
+name: part2
+class: inverse, center, middle
+
+# Part 2. Website Frontend
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## `Academic` &amp;mdash; Overview
+
+.pull-left-c[
+
+- A theme designed by [George Cushen](https://georgecushen.com/)
+
+    - demonstration website is live at &lt;https://themes.gohugo.io/theme/academic/&gt;
+    
+    - documentaion is available at &lt;https://wowchemy.com/docs/&gt;  
+    
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/academic_demo.png)
+
+]
+
+---
+class: action
+
+## Demonstration Sites
+
+- Visit three demonstration websites
+    - website of the theme that we will be using, at &lt;https://themes.gohugo.io/theme/academic&gt;
+    - website of this workshop that you may wish to re-create, at &lt;https://janejdoe.netlify.app&gt;
+    - website of any other theme, listed at at &lt;https://themes.gohugo.io&gt;
+
+- Pay attention to the similarities and differences
+    - between the websites and/or themes
+    - between the behaviour of the menu items
+
+
+<div class="countdown" id="timer_60b87973" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## `Academic` &amp;mdash; Demonstration Site
+
+- The homepage is composed of different parts, called widgets
+    - e.g., the sections titled `Biography`, `Experience`, `Accomplishments` *etc*.
+
+--
+
+&lt;br&gt;
+
+- Some menu items direct the screen to different widgets on the homepage
+    - e.g., `Demo`, `Posts`, `Projects` *etc*.
+
+--
+
+&lt;br&gt;
+
+- Other menu items direct to stand alone sections
+    - e.g., `Courses`
+
+--
+
+&lt;br&gt;
+
+- The menu also has a search function and a day/night mode switch
+    
+---
+## `Academic` &amp;mdash; Advantages
+
+- Designed especially for academics in mind
+    - features what academics would want to feature
+        - e.g., education, publications
+
+--
+
+&lt;br&gt;
+
+- Well looked after
+    - gets updated very frequently
+        - `Hugo` released v0.71.1 on Monday 25 May 2020, which broke the theme
+        - `Academic` got updated the next day with a fix
+    - has a lively community of users and developers behind it
+    
+--
+
+&lt;br&gt;
+
+- Well documented
+    - every line of code in the example site is commented in the backend
+    - more documentation available at [https://sourcethemes.com/academic/docs/](https://sourcethemes.com/academic/docs/)
+
+---
+## `Academic` &amp;mdash; Disadvantages
+
+- Complicated
+
+  - with its high customisation, comes high complexity
+  - its widgets can at first be overwhelming
+
+--
+
+&lt;br&gt;
+
+- Popular
+
+  - over 100,000 websites use this theme
+  - hard to stand out in this crowd
+    
+---
+## `Academic` &amp;mdash; Disadvantages
+
+- Complicated **but well documented**
+    - with its high customisation, comes high complexity
+    - its widgets can at first be overwhelming
+    - **you can handle it on your own**
+
+&lt;br&gt;
+
+- Popular **but with room for personalisation**
+    - over 100,000 websites use this theme
+    - hard to stand out in this crowd
+    - **it comes with different colour schemes, fonts** 
+    - **there are many potential combinations of widgets**
+
+---
+name: part3
+class: inverse, center, middle
+
+# Part 3. Website Backend
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+class: action
+
+## Website Backend &amp;mdash; Create from within RStudio
+
+.pull-left-c[
+
+- Create a new R project, specifically for a website
+
+&gt; `File -&gt; New Project -&gt; New Directory -&gt; Website using blogdown`
+
+- Give your project a name with `Directory Name`
+
+- Choose a location for the project with `Browse...`
+    - synced locations, e.g., `Dropbox`, are likely to cause warning/error messages
+        - pause syncing, or add an sync exclusion on `Dropbox`
+        
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/create_project1.png)
+
+]
+---
+class: action
+
+## Website Backend &amp;mdash; Create from within RStudio
+
+.pull-left-c[
+
+- Observe that the default theme is `yihui/hugo-lithium`
+    - this has the format `GiTHubUserName/RepoName`
+    - located at [https://github.com/yihui/hugo-lithium](https://github.com/yihui/hugo-lithium)
+
+&lt;br&gt;
+
+- Change the theme to `wowchemy/starter-academic`
+    - this is the `Academic` theme
+    - located at &lt;https://github.com/wowchemy/starter-academic&gt;
+
+&lt;br&gt;
+
+- Click `Create Project` to start
+
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/create_project2.png)
+
+]
+
+---
+## Website Backend &amp;mdash; Directory Structure
+
+.pull-left-c[
+
+Observe that the .yellow-h[root directory]&lt;sup&gt;*&lt;/sup&gt; is now populated with files for the theme and the example website
+
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/root_directory.png)
+
+]
+
+.footnote[
+
+[*] The root directory is the main directory of your website project. It is often referred with a single slash .yellow-h[/]. For example .yellow-h[/config.yaml] indicates that there is a file called `config.yaml` directly under the root directory &amp;mdash; e.i., it is not in any other sub-directory.
+
+]
+
+---
+## Website Backend &amp;mdash; Directory Structure
+
+.pull-left-c[
+
+Observe that the root directory is now populated with files, including
+- .yellow-h[`/config.yaml`] and other configuration files under .yellow-h[`/config/`]
+
+    - sets global configurations
+        - e.g., title, decription, navigation menu
+    - uses the YAML syntax
+        - documented at [https://yaml.org/spec/1.2/spec.html](https://yaml.org/spec/1.2/spec.html)
+        - will be covered [here](#yaml-syntax) later on
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/root_directory.png)
+
+]
+
+---
+## Website Backend &amp;mdash; Directory Structure
+
+.pull-left-c[
+
+Observe that the root directory is now populated with files, including
+- `/config.yaml`, `/config/`
+- .yellow-h[`/content/`]
+
+    - includes files to be transformed into HTML pages
+    - each directory under `/content/` is a section of a website
+        - e.g., `/content/post/` can be viewed at `https://janejdoe.netlify.app/post/`
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/content.png)
+
+]
+
+---
+## Website Backend &amp;mdash; Directory Structure &amp;mdash; `/content/`
+
+- Observe that the files under `/content/` are typically Markdown files
+
+    - with the `.md` extension
+
+--
+
+- These files have typically two sections
+
+  - a .yellow-h[front matter] with the YAML syntax
+      - YAML goes between a pair of three hyphens ---    
+&lt;br&gt;      
+  - and some text
+      - using Markdown syntax
+
+---
+## Website Backend &amp;mdash; Directory Structure
+
+.pull-left-c[
+
+Observe that the root directory is now populated with files, including
+- `/config.yaml`, `/config/`
+- `/content/`
+- .yellow-h[`/static/`]
+
+  - contains files that should appear on websites as is
+      - e.g., images, PDF files
+      - these can be organised within separate directories
+          - e.g., images can be put in `static/media/`
+  - `Hugo` does not transform the files in this folder while generating websites
+
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/images_data/static.png)
+
+]
+
+---
+## Website Backend &amp;mdash; Directory Structure &amp;mdash; Notes
+
+- `Hugo` websites follow more or less the same directory structure
+
+  - see the `Hugo` documentation for directory structure at &lt;https://gohugo.io/getting-started/directory-structure/&gt;
+  - structure might look slightly different in different themes
+       - e.g., less complex themes have one configuration file only, without `/config/`
+
+&lt;br&gt;
+
+- The structure, as well as other technical details, might change
+
+   - changes come with a new `Hugo` version
+   - a change may or may not break a theme
+   - themes are designed, and websites are generated, with a certain version
+      - these two versions do not have to be the same, but compatible
+
+---
+class: action
+
+## Website Backend &amp;mdash; Set `Hugo` Version
+
+Set `blogdown.hugo.version` in `/.Rprofile` to the latest `Hugo` version that you have
+
+- `Hugo` version in `/.Rprofile` is often out of date
+- first check the installed `Hugo` versions that you have
+    - by running `blogdown::find_hugo("all")` in the `Console`     
+&lt;br&gt;     
+- changes to `.Rprofile` take affect only after saving the file, and restarting R
+    - after saving, follow `Session -&gt; Restart R`
+---
+class: action
+
+## Website Backend &amp;mdash; `Serve` `Site`
+
+.pull-left-c[
+- Click the `Addins` `-&gt;` `Serve` `Site` to preview the site 
+    - this is equivalent to typing `blogdown::serve_site()` in the `Console`
+    
+- Observe that the website is live in the `Viewer` tab
+    - this can be viewed with a browser, by clicking on the window icon
+            
+]
+
+.pull-right-c[
+
+&lt;img src="rbd_workshop_files/images_data/viewer.png" width="100%" /&gt;
+
+]
+
+---
+
+class: action
+
+## Website Backend &amp;mdash; `Serve` `Site`
+
+.pull-left-c[
+- Click the `Addins` `-&gt;` `Serve` `Site` to preview the site 
+    - this is equivalent to typing `blogdown::serve_site()` in the `Console`
+    
+- Observe that the website is live in the `Viewer` tab
+    - this can be viewed with a browser, by clicking on the window icon
+            
+]
+
+.pull-right-c[
+
+&lt;img src="rbd_workshop_files/images_data/browser.png" width="100%" /&gt;
+
+]
+
+---
+class: action
+
+## Website Project &amp;mdash; `Serve Site`
+
+.pull-left-c[
+- Click the `Addins -&gt; Serve Site` to preview the site 
+    - this is equivalent to typing `blogdown::serve_site()` in the `Console`
+    
+- Observe that the website is live in the `Viewer` tab
+    - this can be viewed with a browser, by clicking on the window icon
+    
+- You can make live edits in this state
+    - e.g., in `/config.yaml`, change &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;title = "Academic"&lt;/span&gt;, and save
+        - e.g., to &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;title = "YourName"&lt;/span&gt;
+        - observe the live change in the website
+            
+]
+
+.pull-right-c[
+
+&lt;img src="rbd_workshop_files/images_data/viewer2.png" width="100%" /&gt;
+
+]
+
+---
+name: part4
+class: inverse, center, middle
+
+## Part 4. Configuration
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## Configuration &amp;mdash; Overview
+
+- There are four configuration files in the theme
+
+  - `/config.yaml`
+  - `/config/_default/languages.yaml`
+  - `/config/_default/menus.yaml`
+  - `/config/_default/params.yaml`
+
+--
+
+&lt;br&gt;
+
+- These files are for overall definitions, settings, and organisation
+  
+  - e.g., creating menu items; defining font, language
+  - these files are written with the YAML syntax
+
+--
+
+&lt;br&gt;
+
+- We will work with the existing options of in these files
+
+  - for the complete list of options that you can use in configuration files, see &lt;https://gohugo.io/getting-started/configuration&gt;
+
+---
+name: yaml-syntax
+## Configuration &amp;mdash; YAML Syntax
+
+.pull-left[
+
+- YAML uses &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;key: value&lt;/span&gt; pairs
+
+   - keys are pre-defined &amp;mdash; mostly by `Hugo`, but also by each theme
+       - e.g., `title`
+   - users supply the values 
+       - e.g., "Name Surname"
+
+]
+
+.pull-right[
+
+```r
+ title: "Jane J. Doe"
+```
+
+]
+---
+## Configuration &amp;mdash; YAML Syntax
+
+.pull-left[
+
+- YAML uses &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;key: value&lt;/span&gt; pairs
+   - keys are pre-defined &amp;mdash; mostly by `Hugo`, but also by each theme
+       - e.g., `title`
+   - users supply the values
+       - e.g., "Name Surname"
+
+- Values can take
+    - &lt;span style="background-color: #ffff88;"&gt;strings&lt;/span&gt;&lt;span&gt;*&lt;/span&gt;
+
+]
+
+.pull-right[
+
+```r
+ `title: "Jane J. Doe"`
+```
+
+]
+
+.footnote[
+
+&lt;span&gt;*&lt;/span&gt; String do not need quotation marks unless they include special characters, such as a colon. Once I spent half a day trying to understand why my website would not build, only to figure this nuance out. I therefore recommend using quotations marks for all strings, just in case.
+
+]
+
+---
+## Configuration &amp;mdash; YAML Syntax
+
+.pull-left[
+
+- YAML uses &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;key: value&lt;/span&gt; pairs
+   - keys are pre-defined &amp;mdash; mostly by `Hugo`, but also by each theme
+       - e.g., `title`
+   - users supply the values
+       - e.g., "Name Surname"
+
+- Values can take
+    - strings, in quotation marks
+    - &lt;span style="background-color: #ffff88;"&gt;numbers, bare&lt;/span&gt;
+
+]
+
+.pull-right[
+
+```r
+ title: "Jane J. Doe"
+ `summaryLength: 30`
+```
+
+]
+
+---
+## Configuration &amp;mdash; YAML Syntax
+
+.pull-left[
+
+- YAML uses &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;key: value&lt;/span&gt; pairs
+   - keys are pre-defined &amp;mdash; mostly by `Hugo`, but also by each theme
+       - e.g., `title`
+   - users supply the values
+       - e.g., "Name Surname"
+
+- Values can take
+    - strings, in quotation marks
+    - numbers, bare
+    - &lt;span style="background-color: #ffff88;"&gt;Boolean values, in lower case, bare&lt;/span&gt;
+
+]
+
+.pull-right[
+
+```r
+ title: "Jane J. Doe"
+ summaryLength: 30
+ `enableEmoji: true`
+```
+
+]
+
+---
+## Configuration &amp;mdash; YAML Syntax
+
+.pull-left[
+
+- YAML uses &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;key: value&lt;/span&gt; pairs
+   - keys are pre-defined &amp;mdash; mostly by `Hugo`, but also by each theme
+       - e.g., `title`
+   - users supply the values
+       - e.g., "Name Surname"
+
+- Values can take
+    - strings, in quotation marks
+    - numbers, bare
+    - Boolean values, in lower case, bare
+    - &lt;span style="background-color: #ffff88;"&gt;sequence of values with a hyphen each&lt;/span&gt;
+
+]
+
+.pull-right[
+
+```r
+ title: "Jane J. Doe"
+ summaryLength: 30
+ enableEmoji: true
+ `interests:`
+  `- Party politics`
+  `- Public policy`
+  `- International polities`
+ 
+```
+
+]
+
+---
+## Configuration &amp;mdash; YAML Syntax &amp;mdash; Notes
+
+
+There is an alternative way to write sequence of values 
+- in square brackets, separated by comma
+
+```r
+ title: "Jane J. Doe"
+ summaryLength: 30
+ enableEmoji: true
+ `interests: [Party politics, Public policy, International polities]`
+```
+
+---
+## Configuration &amp;mdash; YAML Syntax &amp;mdash; Notes
+  
+Multiple nesting of keys and sequences is also possible
+- requires indentation with four spaces for the first nesting, and an hyphen for the second
+
+```r
+
+ education:
+ `    `courses:
+ `        - `course: PhD in Political Science
+           institution: University of Vienna
+           year: 2017
+ `        - `course: MSSc in European Studies
+           institution: University of Tampere
+           year: 2009
+```
+---
+## Configuration &amp;mdash; YAML Syntax &amp;mdash; Notes
+
+To disable an option in YAML, you can
+
+- comment its line out with a hash
+
+```r
+# title: "Jane J. Doe"
+```
+--
+
+- set it to `[]`
+   - this may not work in nests
+
+```r
+title: []
+```
+
+--
+
+- set it to ""
+
+```r
+title: ""
+```
+
+--
+
+- delete it altogether
+    - not recommended, as you might need that key in the future
+    
+```r
+
+```
+
+---
+class: action
+
+## Exercises &amp;mdash; Configuration &amp;mdash; `/config.yaml`
+
+- Edit one or more values in the `/config.yaml` file
+  - locate the file under the root directory
+  - edit at least the `title` and `copyright`&lt;sup&gt;*&lt;/sup&gt; keys, with
+      - your information, or
+      - information on [JJD's website](https://janejdoe.netlify.app/)    
+&lt;br&gt;
+  - remember to save the file
+      - and observe the changes in the RStudio Viewer and/or on a browser
+      
+
+&lt;br&gt;
+
+- Scroll through the other keys
+    - to see what else is available that you may wish to edit 
+    - once your website is online, you should also edit `baseurl` in this file
+          - remember to keep the trailing slash
+          - e.g. https://janejdoe.netlify.app&lt;span style="background-color: #ffff88;"&gt;/&lt;/span&gt;
+
+.footnote[
+
+&lt;sup&gt;*&lt;/sup&gt; `&amp;copy;` is the HTML code for the copyright symbol &lt;span style="background-color: #ffff88;"&gt;&amp;copy;&lt;/span&gt;. `{year}` turns into the current year, so that you don't have to update this every year.
+
+]
+
+<div class="countdown" id="timer_60b878bd" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>  
+
+---
+class: action
+
+## Exercises &amp;mdash; Configuration &amp;mdash; `params.yaml`
+
+- Edit one or more values in the `params.yaml` file
+   - locate it under `/config/_default/`
+   - edit at least the values for contact details
+   - observe the changes in the RStudio Viewer and/or on a browser
+
+&lt;br&gt;
+
+- Scroll through the other keys in other sections
+
+  - colour schemes and fonts are defined in this file as well
+     - an important opportunity to personalise
+     - see what is available at &lt;https://sourcethemes.com/academic/themes/&gt;     
+&lt;br&gt;
+  - icons are available from various packages
+     - see the list at &lt;https://sourcethemes.com/academic/docs/page-builder/#icons&gt;
+
+<div class="countdown" id="timer_60b87961" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>  
+
+---
+## Configuration &amp;mdash; `menus.yaml`
+
+This file configures the website menu
+
+  - creates and orders menu items
+  - directs them 
+     - to a specific section on the homepage
+         - e.g., to a widget such as Contact at the bottom of the homepage   
+&lt;br&gt;         
+     - to a specific page
+         - e.g., to a page that lists the titles of all blogposts
+         - e.g., to a specific blogpost
+
+---
+## Configuration &amp;mdash; `menus.yaml`
+
+.pull-left-c[
+
+- Define menu items 
+    - as a list, with the `name` argument
+
+]
+
+.pull-right-c[
+
+```r
+main
+  - `name`: "Posts"
+  
+  
+  - name: "Courses"
+  
+  
+  - name: "Twitter"
+  
+  
+  - name: "CV"
+  
+  
+```
+]
+
+---
+## Configuration &amp;mdash; `menus.yaml`
+
+.pull-left-c[
+
+- Define menu items 
+- Order the items
+    - with the `weight` argument
+   
+&lt;br&gt;   
+    
+- Note that
+   - the order, not the actual value, matters
+       - you could use 1, 4, 9 ... instead     
+&lt;br&gt;
+   - using the same value for two or more items should be avoided
+
+]
+
+.pull-right-c[
+
+```r
+main
+  - name: "Posts"
+    `weight`: 10
+  
+  - name: "Courses"
+    weight: 30
+  
+  - name: "Twitter"
+    weight: 20
+  
+  - name: "CV"
+    weight: 40
+  
+```
+
+]
+
+---
+## Configuration &amp;mdash; `menus.yaml`
+
+.pull-left-c[
+
+- Define menu items 
+- Order the items
+- Link them to destinations
+    - with the `url` argument    
+&lt;br&gt;
+        - with a number sign &lt;span style="background-color: #ffff88;"&gt;#&lt;/span&gt; to a widget on the homepage
+            - these match a file name under `/content/home/`   
+&lt;br&gt;
+       - with a trailing slash &lt;span style="background-color: #ffff88;"&gt;/&lt;/span&gt; to sections
+            - these match a file or folder name under `/content/`
+&lt;br&gt;
+       - with URLs to external sites
+           - e.g., Twitter    
+&lt;br&gt;
+       - with paths relative to the `/static/` sub-directory
+           - `files/cv.pdf` suggests cv is under `/static/files/cv.pdf`
+]   
+
+
+.pull-right-c[
+
+```r
+main:
+  - name = "Posts"
+    weight = 10
+    `url = "#posts"`
+  - name = "Courses"
+    weight = 30
+    `url = "courses/"`
+  - name = "Twitter"
+    weight = 20
+    `url = "https://twitter.com/resulumit"`
+  - name = "CV"
+    weight = 40
+    `url = "files/cv.pdf"`
+ 
+```
+]
+
+---
+class: action
+
+## Exercises &amp;mdash; Configuration &amp;mdash; `menus.yaml`
+
+- Edit the `menus.yaml` file, as much as possible now&lt;sup&gt;*&lt;/sup&gt;
+   
+   - create, order, and direct menu items
+   - observe the changes in the RStudio Viewer and/or on a browser
+
+
+
+.footnote[
+
+&lt;sup&gt;*&lt;/sup&gt; You are likely to edit this file throughout the workshop, as your website evolves. 
+
+]
+
+<div class="countdown" id="timer_60b878d2" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>  
+
+---
+## Configuration &amp;mdash; `languages.yaml`
+
+This file 
+
+- defines the language of the website
+
+  - the default is English
+
+
+- can make the site multi-lingual
+
+  - we will not cover it in this workshop
+  - instructions available at the above link as well
+    
+---
+## Configuration &amp;mdash; Multi-lingual Sites    
+
+- Considerations     
+&lt;br&gt;
+    - who is your target audience?
+        - would they be lost if your website was only in one language? 
+            - if not, perhaps it is not worth the hassle     
+&lt;br&gt;
+    - what will be in multiple languages?
+        - all website, or some widgets and/or pages? 
+            - even in a single language setting, widgets and pages can be written in different languages
+
+--
+
+&lt;br&gt;
+
+- Strategy
+
+  - build your website in full in one language first, than add the second
+      - rather then building it multiple languages in tandem
+      - hence not covered in the workshop
+
+---
+class: action
+
+## Exercises &amp;mdash; Configuration &amp;mdash; `languages.yaml`
+
+- This exercise is optional
+
+   - only if your preferred language is not English
+   - see the list of language options and their codes at &lt;https://wowchemy.com/docs/guide/language/&gt; 
+
+&lt;br&gt;
+
+- Change the langauge of your website, in two steps
+
+  - in `languages.yaml`: 
+      - provide a different value to the `languageCode` key
+&lt;br&gt;       
+  - in `/config.yaml`:
+       - edit the value for `defaultContentLanguage` 
+
+<div class="countdown" id="timer_60b87a9d" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>  
+
+---
+name: part5
+class: inverse, center, middle
+
+## Part 5. Managing Structure
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## Structure &amp;mdash; Overview
+
+- Structure depends mostly on the way the `/content/` directory is organised, including
+
+   - individual pages, such as a homepage
+   - sections (collections of pages), such as a blog 
+
+&lt;br&gt;
+
+- Each page at the fronted corresponds to a Markdown file at the backend
+
+   - changing the content and/or the position of these files at the backend will change the frontend
+
+&lt;br&gt;
+
+- Sections are organised in separate directories under `/content/`
+
+   - first-level sub-directories become a section by default
+      - e.g. `content/post/` is a section (for all blogposts)    
+&lt;br&gt;       
+   - creating a section under a section requires manual input
+        - by adding a file named `_index.md` under the second-level directory
+
+
+---
+## Structure &amp;mdash; Examples
+
+A website with a single page
+
+```r
+.
+└── /content/
+    |
+    └── home.md          # &lt;- https://janejdoe.netlify.app/home/
+        
+```
+---
+## Structure &amp;mdash; Examples
+
+A website with two single pages
+
+```r
+.
+└── /content/
+    |
+    ├── home.md          # &lt;- https://janejdoe.netlify.app/home/
+    |
+    └── `about.md`         # &lt;- https://janejdoe.netlify.app/about/
+        
+```
+
+---
+## Structure &amp;mdash; Examples
+
+A website with five pages
+
+```r
+.
+└── /content/
+    |
+    ├── home.md             # &lt;- https://janejdoe.netlify.app/home/
+    |
+    ├── about.md            # &lt;- https://janejdoe.netlify.app/about/
+    |
+    └── `blog/`               # &lt;- https://janejdoe.netlify.app/blog/
+        |
+        ├── `first-post.md`   # &lt;- https://janejdoe.netlify.app/blog/first-post/
+        |
+        └── `second-post.md`  # &lt;- https://janejdoe.netlify.app/blog/second-post/
+        
+```
+
+Note that there are
+   - four single pages: home, about, first-post, second-post     
+   - one section page: blog
+       - because it is a first order sub-directory
+       - by default, this section page is tiled Blog, showing the links to the two posts
+
+---
+## Structure &amp;mdash; Examples
+
+A website with three pages
+
+```r
+.
+└── /content/
+    |
+    ├── home.md             # &lt;- https://janejdoe.netlify.app/home/
+    |
+    ├── about.md            # &lt;- https://janejdoe.netlify.app/about/
+    |
+    └── `blog/index.md`       # &lt;- https://janejdoe.netlify.app/blog/
+        
+```
+&lt;br&gt;
+
+Note that
+   - `index.md` is a special file name for `Hugo` &amp;mdash; it creates a page matching its directory name
+   - there are three single pages: home, about, blog    
+   - blog is not a section page, but a simple page, showing a blogpost
+
+---
+## Structure &amp;mdash; Examples
+
+A website with five pages: three three single pages and two nested section pages
+
+```r
+.
+└── /content/
+    |
+    ├── home.md              # &lt;- https://janejdoe.netlify.app/`home`/
+    |
+    └── blog/                # &lt;- https://janejdoe.netlify.app/`blog`/
+        |
+        ├── first-post.md    # &lt;- https://janejdoe.netlify.app/blog/`first-post`/
+        |
+        └── academic/        # &lt;- https://janejdoe.netlify.app/blog/`academic`/
+          |
+          ├── _index.md   
+          |
+          └── second-post.md    # &lt;- https://janejdoe.netlify.app/blog/academic/`second-post`/
+```
+
+---
+## Structure &amp;mdash; Examples
+
+A website with five pages: .yellow-h[three single pages] and two nested section pages
+
+```r
+.
+└── /content/
+    |
+    ├── home.md              # &lt;- https://janejdoe.netlify.app/`home`/
+    |
+    └── blog/                # &lt;- https://janejdoe.netlify.app/blog/
+        |
+        ├── first-post.md    # &lt;- https://janejdoe.netlify.app/blog/`first-post`/
+        |
+        └── academic/        # &lt;- https://janejdoe.netlify.app/blog/academic/
+          |
+          ├── _index.md   
+          |
+          └── second-post.md    # &lt;- https://janejdoe.netlify.app/blog/academic/`second-post`/
+```
+
+---
+## Structure &amp;mdash; Examples
+
+A website with five pages: three single pages and .yellow-h[two nested section pages]
+
+```r
+.
+└── /content/
+    |
+    ├── home.md              # &lt;- https://janejdoe.netlify.app/home/
+    |
+    └── blog/                # &lt;- https://janejdoe.netlify.app/`blog`/
+        |
+        ├── first-post.md    # &lt;- https://janejdoe.netlify.app/blog/first-post/
+        |
+        └── academic/        # &lt;- https://janejdoe.netlify.app/`blog/academic`/
+          |
+          ├── _index.md  
+          |
+          └── second-post.md    # &lt;- https://janejdoe.netlify.app/blog/academic/second-post/
+```
+---
+## Structure &amp;mdash; Examples
+
+A website with five pages: three single pages, .yellow-h[two nested section pages]
+
+```r
+.
+└── /content/
+    |
+    ├── home.md              # &lt;- https://janejdoe.netlify.app/home/
+    |
+    └── blog/                # &lt;- https://janejdoe.netlify.app/blog/
+        |
+        ├── first-post.md    # &lt;- https://janejdoe.netlify.app/blog/first-post/
+        |
+        └── academic/        # &lt;- https://janejdoe.netlify.app/`blog/academic`/
+          |
+          ├── `_index.md`  
+          |
+          └── second-post.md    # &lt;- https://janejdoe.netlify.app/blog/academic/second-post/
+```
+
+Notice that
+   - `_index.md`, with underscore, is a special file name for `Hugo` &amp;mdash; it creates sections
+
+
+---
+## Structure &amp;mdash; Examples
+
+Having `_index.md` in first-order sub-directories is optional, but may be helpful
+
+- can add metadata and/or text to section pages
+    - e.g., these are by default titled as the plural of section names
+          - e.g., the page `publication/` is titled as `Publications`
+    - change this behaviour with `_index.md`
+
+```r
+.
+└── /content/
+    |
+    └── home.md             # &lt;- https://janejdoe.netlify.app/home/
+    |
+    └── about.md            # &lt;- https://janejdoe.netlify.app/about/
+    |
+    └── `blog/`               # &lt;- https://janejdoe.netlify.app/blog/
+        |
+        ├── `_index.md`
+        |
+        ├── first-post.md   # &lt;- https://janejdoe.netlify.app/blog/first-post/
+        |
+        └── second-post.md  # &lt;- https://janejdoe.netlify.app/blog/second-post/
+        
+```
+
+---
+class: action
+
+## Exercises &amp;mdash; Structure
+
+- Explore the directory structure of your website in RStudio
+
+  - how many pages and sections are there?
+  - are there any subsections?
+      - hint: see `courses/`
+      
+&lt;br&gt;
+
+- Do a matching exercise
+    
+  - open the example site on a browser
+  - try and find the front end of the following file
+        - `/content/publication/journal-article/index.md`    
+&lt;br&gt;        
+    - compare the back end with front end
+
+<div class="countdown" id="timer_60b87bbb" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## Structure &amp;mdash; `home/` &amp;mdash; Overview
+
+- The homepage in `Academic` does not exactly follow the structure above
+
+  - every file under `home/` is not a stand alone page
+  - these files, called widgets, are rather stitched under one another
+       - considered as one of the strengths of the theme
+       - some academics prefer to have only this page    
+
+--
+
+&lt;br&gt;
+
+- Widgets are complicated Markdown files
+
+   - can be stitched under one another
+   - can get text from files elsewhere
+      - e.g., the `contact.md` widget gets the address information from `params.yaml`
+   
+--
+
+&lt;br&gt;
+
+- A homepage can have one, more, or all widgets
+
+  - widgets can be deactivated or repeated
+  - they can be re-ordered as well
+
+    
+---
+## Structure &amp;mdash; `home/` &amp;mdash; Widgets
+
+- There are 13 types of pre-defined widgets
+
+  - for detailed explanations, see [https://sourcethemes.com/academic/docs/page-builder/](https://sourcethemes.com/academic/docs/page-builder/)
+  - you can build your own widget as well
+
+--
+
+&lt;br&gt;
+
+- Widgets are in fact Markdown files, with .md extension
+
+  - each has YAML syntax as the front matter
+  - some has Markdown text as well
+        - e.g., `demo.md`
+  - because they can have both variables and text, YAML goes between a pair of three hashes
+
+--
+
+&lt;br&gt;
+
+- Widgets are located under `/content/home/`
+
+  - except `index.md`, each file is a widget &amp;mdash; some duplicates of the same type
+  
+  
+---
+## Structure &amp;mdash; Homapage &amp;mdash; Widgets &amp;mdash; Important Keys
+
+
+.pull-left-c[
+
+- Some keys are common across all widgets
+
+    - &lt;span style="background-color: #ffff88;"&gt;Indicate the type of the widget&lt;/span&gt;
+        - see all pre-defined types at &lt;https://sourcethemes.com/academic/docs/page-builder/&gt;
+
+]
+
+
+.pull-right-c[
+
+```r
+ `widget: "pages"`
+
+```
+
+]
+
+---
+## Structure &amp;mdash; Homapage &amp;mdash; Widgets &amp;mdash; Important Keys
+
+
+.pull-left-c[
+
+- Some keys are common across all widgets
+
+    - Indicate the type of the widget
+    - &lt;span style="background-color: #ffff88;"&gt;De-activate a widget&lt;/span&gt;
+
+]
+
+
+.pull-right-c[
+
+```r
+ widget: "pages"
+ `active: false`
+
+```
+
+]
+
+---
+## Structure &amp;mdash; Homapage &amp;mdash; Widgets &amp;mdash; Important Keys
+
+
+.pull-left-c[
+
+- Some keys are common across all widgets
+
+    - Indicate the type of the widget
+    - De-activate a widget
+    - &lt;span style="background-color: #ffff88;"&gt;Order a widget in relation to other widgets&lt;/span&gt;
+
+]
+
+
+.pull-right-c[
+
+```r
+ widget: "pages"
+ active: false
+ `weight: 9` 
+
+```
+
+]
+
+
+---
+## Structure &amp;mdash; Homapage &amp;mdash; Widgets &amp;mdash; Important Keys
+
+
+.pull-left-c[
+
+- Some keys are common across all widgets
+
+    - Indicate the type of the widget
+    - De-activate a widget
+    - Order a widget in relation to other widgets
+    - &lt;span style="background-color: #ffff88;"&gt;Title and/or subtitle it&lt;/span&gt;
+
+]
+
+
+.pull-right-c[
+
+```r
+ widget: "pages"
+ active: false
+ weight: 9
+ `title: "Recent Publications"`
+ `subtitle: ""`
+
+```
+
+]
+
+---
+## Structure &amp;mdash; Homapage &amp;mdash; Widgets &amp;mdash; Important Keys
+
+.pull-left-c[
+
+- Some keys are common across all widgets
+
+    - Indicate the type of the widget
+    - De-activate it
+    - Order it in relation to other widgets
+    - Title and/or subsitle it
+    
+- Some keys are widget specific
+
+    - &lt;span style="background-color: #ffff88;"&gt;Link it to a content section&lt;/span&gt;
+
+]
+
+
+.pull-right-c[
+
+```r
+ widget: "pages"
+ active: false
+ weight: 9
+ title: "Recent Publications"
+ subtitle: ""
+ `page_type: "publication"`
+
+```
+
+]
+
+---
+## Structure &amp;mdash; Homapage &amp;mdash; Widgets &amp;mdash; Important Keys
+
+.pull-left-c[
+
+- Some keys are common across all widgets
+
+    - Indicate the type of the widget
+    - De-activate it
+    - Order it in relation to other widgets
+    - Title and/or subsitle it
+    
+- Some keys are widget specific
+
+    - &lt;span style="background-color: #ffff88;"&gt;Link it to a content section&lt;/span&gt;
+
+- Widgets in the example site come with many keys and detailed definitions
+    - further documentation is available at &lt;https://sourcethemes.com/academic/docs/page-builder/&gt;
+
+]
+
+
+.pull-right-c[
+
+```r
+ widget: "pages"
+ active: false
+ weight: 9
+ title: "Recent Publications"
+ subtitle: ""
+ `page_type: "publication"`
+
+```
+
+]
+
+---
+## Structure &amp;mdash; Adding
+
+- There are at least three ways to add new pages and sections
+
+  - create new files and directories, respecting the directory structure of `Hugo` and `Academic`
+  - rename and edit the existing files and folders for your purposes
+  - duplicate, rename, and edit the existing files and folders that are in use
+    
+&lt;br&gt;
+
+- RStudio has helpful buttons for these purposes
+    - to create, duplicate, and/or rename
+    - alternatively, use your operating system 
+
+---
+class: action
+
+## Exercises &amp;mdash; Structure &amp;mdash; Adding
+
+Rename one or more blogposts and publications on your website
+  - observe the changes in RStudio Viewer
+  
+
+&lt;br&gt;
+
+Hint:
+
+- this exercise is about structure, not the content
+   - we will cover editing the content in [Part 8](#part8) and [Part 9](#part9)     
+&lt;br&gt;
+- JJD's website has the following 
+   - two blogposts
+      - &lt;https://janejdoe.netlify.app/post/academic-websites/&gt;
+      - &lt;https://janejdoe.netlify.app/post/cabinet-size/&gt;     
+&lt;br&gt;
+   - two publications
+      - &lt;https://janejdoe.netlify.app/publication/parties-politics/&gt;
+      - &lt;https://janejdoe.netlify.app/publication/parties-social-media/&gt;
+
+
+<div class="countdown" id="timer_60b87813" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## Structure &amp;mdash; Removing
+
+There are at least two ways to remove pages and sections
+
+- delete them, respecting the directory structure of `Hugo` and `Academic`
+    - perhaps, you are sure there will not be two authors on your website
+       - the example site comes with two author profiles,  under `/content/authors/`
+       - with usernames `admin` (main) and `吳恩達` (secondary)
+       - it is safe to delete the latter    
+&lt;br&gt;
+- turn them into drafts, by setting
+    - &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;active: false&lt;/span&gt; in the YAML of widgets
+    - &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;draft: true&lt;/span&gt; in the YAML of other Markdown files
+    - perhaps, you think you may need a section in the future
+
+---
+class: action
+
+## Exercises &amp;mdash; Structure &amp;mdash; Removing &amp;mdash; Widgets
+
+- Keep only the widgets that you would like to have on your website
+
+  - set &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;active: false&lt;/span&gt; in the front matter of the undesired widget
+  - re-order the desired widgets if necessary
+  - check if the homepage looks and works as expected
+
+&lt;br&gt;
+
+- Hint:
+
+  - `/content/home/index.md` is not a widget
+     - although it is under the same directory with all widgets   
+&lt;br&gt;
+  - on [JJD's website](https://janejdoe.netlify.app/), the following widgets are active
+       - hero, about, experience, publications, posts, contact    
+&lt;br&gt;
+  - you may need to configure the menu in parallel
+      - by editing `/config/_default/menus.yaml`
+
+<div class="countdown" id="timer_60b879d8" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## Structure &amp;mdash; Removing &amp;mdash; Non-Widget Markdown
+
+- You can deactivate a specific page in a section
+
+   - add &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;draft: true&lt;/span&gt; to file of that page
+   - e.g., `/content/publication/journal-article/index.md`
+   
+&lt;br&gt;
+
+- You can deactivate whole sections in one go
+   
+   - add &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;draft: true&lt;/span&gt; to file of that section
+   - e.g., `/content/publication/_index.md`     
+
+&lt;br&gt;
+
+- You can deactivate whole sections except one or more pages
+   
+   - add &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;draft: true&lt;/span&gt; to file of that section
+   - e.g., `/content/publication/_index.md`    
+&lt;br&gt; 
+   - add &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;draft: false&lt;/span&gt; to the file of a page
+   - e.g., `/content/publication/journal-article/index.md`   
+
+---
+## Structure &amp;mdash; Removing &amp;mdash; Non-Widget Markdown
+
+- Not all sections have `_index.md` to start with
+
+  - e.g., `/content/project/`
+  - you can add one, following
+
+&gt; `File -&gt; New File -&gt; R Script`
+
+&lt;br&gt;
+
+- Draft pages and  sections are still visible to you in live preview
+
+  - e.i., when you use `blogdown::serve_site`
+  - but not to the visitors of your website
+        - e.i., if you publish your site
+        
+---
+class: action
+
+## Exercises &amp;mdash; Structure &amp;mdash; Non-Widget Markdown
+
+- Keep only the sections and pages that you would like to have on your website
+
+  - set the `draft` key to `true` or  `false` in the front matter of relevant files
+  - check if the website looks and works as expected
+
+&lt;br&gt;
+
+- Hint:
+
+  - on [JJD's website](https://janejdoe.netlify.app/), the following sections are active
+       - home, authors, post, publication
+       - `admin` is the only author   
+&lt;br&gt;
+  - you may need to configure the menu in parallel
+      - by editing `/config/_default/menus.yaml`
+
+<div class="countdown" id="timer_60b87b4f" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+name: part6
+class: inverse, center, middle
+
+# Part 6. Deployment
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## Deployment &amp;mdash; Overview
+
+- Deployment of your website onto a web server makes it visible online
+
+  - your website is currently available on your computer only
+
+&lt;br&gt;
+
+- You can deploy your website at any web server that you prefer
+
+  - [Netlify](https://www.netlify.com/) is a popular choice as a web server
+      - easy to set up
+      - includes a free plan    
+      - recommended by the authors of the `blogdown` package and the `Academic` theme
+
+---
+## Deployment &amp;mdash; Workflow
+
+Deployment occurs in two steps
+
+- we push the website files, from our computer, into a GitHub repository
+
+   - for the first time, and after one or more edits
+   - with commands or clicks in RStudio
+   
+&lt;br&gt;
+
+- Netlify does the rest automatically, in a minute or so
+    
+  - (re-)retrieves the files
+  - generates the website with `Hugo`
+  - (re-)publishes the website
+
+---
+## Deployment &amp;mdash; Git and GitHub &amp;mdash; Definitions
+
+- Git
+    - a software that keeps track of versions of a set of files
+    - it is local, the records are kept on your computer
+
+--
+
+- GitHub
+    - a hosting service, or a website, that can keep the records
+    - it is like Dropbox, but specifically structured to keep records with Git
+
+--
+
+- Repository, or repo
+    - a set of files whose records are kept together, by Git and/or on GitHub
+    - it is like a folder, which can keep files and other folders containing files
+
+---
+## Deployment &amp;mdash; Git and GitHub &amp;mdash; Definitions
+
+- To commit
+    - to take a snapshot of, to version a repository
+    - it is like saving a new version of all changed files in your folder with a new name
+    - it is local, the records are kept on your computer unless you `push`
+
+--
+
+- To push
+    - to move the records from Git to GitHub, from your computer to online
+    - it is like uploading (the new versions of) your files to a website, 
+    - it also involves merging, if this not the first push
+
+--
+
+- To pull
+    - to move the updated records from GitHub to your computer
+    - it is like downloading a zipped folder of files, and merging with the ones on your computer
+
+---
+## Deployment &amp;mdash; Git and GitHub &amp;mdash; Workflow
+
+Working with with Git and GitHub requires
+
+- .yellow-h[initial setup], done once&lt;sup&gt;*&lt;/sup&gt;
+    - unless for a new computer or, if ever, a new GitHub account
+    - a bit technical, but worth the hassle
+
+&lt;br&gt;
+    
+- .yellow-h[project setup], repeated for every RStudio project
+    - shorter, less complicated
+
+.footnote[
+
+[*] We have started this process already, in [Part 1](#part1) of the workshop, by downloading and installing Git and signing up for GitHub.
+
+]
+---
+class: action
+
+## Deployment &amp;mdash; Git and Github &amp;mdash; Inital Setup
+
+1) Enable version control with RStudio
+
+- from the RStudio menu, follow:
+
+&gt; `Tools -&gt; Global Options -&gt; Git/SNV -&gt; Enable version control interface for RStudio projects`
+
+- RStudio will likely find Git automatically. In case it cannot, Git is likely to be at
+
+    - `c:/Program Files/Git/bin/git.exe` on Windows
+
+    - `/usr/local/git/bin/git` on Mac
+
+---
+class: action
+
+## Deployment &amp;mdash; Git and Github &amp;mdash; Inital Setup
+
+
+2) Set Git Bash as your shell (Windows-only step)
+
+- from the RStudio menu, follow:
+
+&gt; `Tools -&gt; Global Options -&gt; Terminal -&gt; New terminals open with: Git Bash`
+
+---
+class: action
+
+## Deployment &amp;mdash; Git and Github &amp;mdash; Inital Setup
+
+3) Introduce yourself to Git
+
+- from the RStudio menu, follow:
+
+&gt; `Tools -&gt; Terminal -&gt; New Terminal`
+
+&lt;br&gt;
+
+- enter the following lines in the Terminal
+   - replacing the relevant parts with .yellow-h[your personal information]
+       - e.g., the email address that you have used to sign up for GitHub
+
+```yaml
+git config --global user.name `"YOUR NAME"` 
+git config --global user.email `"YOUR EMAIL ADDRESS"`
+```
+
+&lt;br&gt;
+
+- enter the following line in the Terminal
+   - to observe whether the previous step was successful
+
+```yaml
+git config --global --list
+
+```
+---
+class: action
+
+## Deployment &amp;mdash; Git and Github &amp;mdash; Project Setup
+
+1) Initiate local version control with Git
+
+- from the RStudio menu, follow:
+
+&gt; `Tools -&gt; Version Control -&gt; Project Setup... -&gt; Version Control System -&gt; Git`
+
+&lt;br&gt;
+
+- after confirming your new repository, and restarting the session, observe that 
+
+   - now there is now a Git tab in RStudio, 
+        - documenting the differences between you local repository and the one on GitHub
+        - when you change a file, it will appear here    
+&lt;br&gt;
+   - your project now includes a `.gitignore` file
+       - this is where you can list files and/or folders to be excluded from being tracked
+
+---
+class: action
+
+## Deployment &amp;mdash; Git and Github &amp;mdash; Project Setup
+
+2) Create a new GitHub repository
+
+- on GitHub, follow:
+
+&gt; `Repositories -&gt; New -&gt; Repository name (e.g., "my_website") -&gt; Public -&gt; Create repository`
+
+&lt;br&gt;
+
+- observe that
+
+  - repository URLs have the following structure: https://github.com/USER_NAME/REPOSITORY_NAME
+    
+      - this is the address to view the repository online
+      - for use in the `Terminal`, the address gets the `.git` extension
+          - e.g., https://github.com/USER_NAME/REPOSITORY_NAME.git
+
+---
+class: action
+
+## Version Control &amp;mdash; Git and Github &amp;mdash; Project Setup
+
+3) Push an existing repository
+
+- from the RStudio menu, follow:
+
+&gt; `Tools -&gt; Terminal -&gt; New Terminal`
+
+- enter the following lines in the `Terminal`
+    - with .yellow-h[your] username and repository name
+
+```yaml
+git remote add origin https://github.com/`USER_NAME/REPOSITORY_NAME`.git
+git add .
+git commit -m "initial commit"
+git push -u origin master
+
+```
+
+&lt;br&gt;
+
+- Notice that
+   - your files are now online at your GitHub repository
+   - we have completed the first step in deployment
+
+---
+class: action
+
+## Deployment &amp;mdash; Netlify &amp;mdash; Setup
+
+
+1) After logging in to Netlify, follow
+
+&gt; `New site from Git -&gt; GitHub`
+
+&lt;br&gt;
+
+- complete the authorisation process
+    - so that GitHub allows Netlify to access your repository
+    - once completed, pick your repository from the list, and click `Deploy site`
+        - the default settings should work
+
+---
+class: action
+
+## Deployment &amp;mdash; Netlify &amp;mdash; Setup
+
+
+2) While on the `Site overview` page, click on `Domain settings`
+
+- change the name of your site to something more meaningful
+    - by default, Netlify assigns a random name
+       - e.g., hus324n.netlify.app     
+&lt;br&gt;  
+- if you have a custom domain name
+    - e.g., you have purchased yournamesurname.com
+    - click on `Add custom domain` and follow the instructions     
+&lt;br&gt;
+- if you don't have a custom domain name, 
+    - click on `Options` to change the random address to something more meaningful
+        - e.g., yournamesurname.netlify.app
+    
+---
+class: action
+
+## Deployment &amp;mdash; Workflow &amp;mdash; In Practice
+
+1) In RStudio, edit your site with the its URL
+- this is done through the `baseurl` key in `/config.yaml` 
+- set it to `https://yournamesurname.netlify.app/`
+      - including the trailing slash
+- observe whether the site still builds, in Viewer
+
+&lt;br&gt;
+
+2) Commit and Push
+- under the Git tab in RStudio, find the file
+    - it will have `M`, for modified, as `Status`    
+&lt;br&gt;
+- tick `Staged`&lt;sup&gt;*&lt;/sup&gt;  for that file, and click `Commit`
+   - enter a `Commit message` that summarises the edit
+   - click `Commit` to create a record of the new version locally to your computer
+   - click `Close -&gt; Push` to push the version to GitHub
+
+.footnote[
+[*] To stage is to add files to be committed. It  allows us to commit one or more files together or separately.
+]
+
+---
+## Deployment &amp;mdash; Notes
+
+- Avoid pushing your project to GitHub without checking it works locally first
+    - use `blogdown` for your advantage, observe it in Viewer
+
+--
+
+&lt;br&gt;
+
+- If things still go wrong, you can revert back to the version on GitHub
+    - `git checkout HEAD PATH/TO/FOLDER/OR/FILE` reverts a specific folder or file
+    - `git reset --hard` reverts all
+    
+--
+
+&lt;br&gt;
+
+- Note that
+    - reverting as above gets rid of good as well as bad edits
+        - more nuanced approaches are possible
+    - reverting further back to one of the previous versions also possible
+    - see my [workshop materials on working with with Git and GitHub](https://resulumit.com/teaching/git_workshop.html) for more information
+    
+---
+class: action
+
+## Exercises &amp;mdash; Deployment
+
+- Practice deployment one more time
+   
+  - edit a piece of text that is visible on your website, and save
+     - e.g., the `title` key in `/config.yaml`     
+&lt;br&gt;     
+  - observe the change locally, in Viewer
+  - stage, commit, push
+  - observe the change online, in a browser
+    
+
+<div class="countdown" id="timer_60b87a77" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+name: part7
+class: inverse, center, middle
+
+# Part 7. Adding Content
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## Content &amp;mdash; Overview
+
+Most of what is visible at website frontend is stored in three directories at the backend
+
+- some files are under the `/assets/` directory
+    - most importantly, the website icon
+
+&lt;br&gt;
+
+- other display-as-is materials are under the `/static/` directory
+    - e.g., PDFs, images
+
+&lt;br&gt;
+
+- most materials are under the `/content/` directory
+    - e.g., Markdown files matching pages, widgets for the homapage
+
+
+---
+## Content &amp;mdash; `/assets/`
+
+- This directory stores non-textual files to be processed 
+   - by `Hugo` to generate the website
+   - e.g., images
+   
+&lt;br&gt;   
+   
+- By default, files under `/assets/` do not have a matching URL
+   - visitors will not be able to view them unprocessed on a browser
+   
+&lt;br&gt;
+
+- Adding a file to `/assets/` is straightforward
+   - move or copy into it as normal
+   
+&lt;br&gt;
+
+- `Academic` looks in `/assets/media/` for a website icon
+   - it appears, e.g., on web browser tabs
+   - it must be named `icon.png`
+   - if not, `Academic` uses the default icon
+
+---
+class: action
+
+## Exercises &amp;mdash; Content &amp;mdash; `/assets/`
+
+Change your website icon
+
+  - by placing an image named `icon.png` to `/assets/media/`
+  - stage, commit, push
+  - observe the change online, in a browser
+
+&lt;br&gt;
+
+Hint:
+
+- website icons are not visible in RStudio Viewer
+- images are best saved as a square 512x512 pixel
+- JJD's icon is the same as her profile picture
+    - available for [download here](https://github.com/resulumit/workshop_website/raw/master/assets/media/icon.png)
+
+
+<div class="countdown" id="timer_60b8797a" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## Content &amp;mdash; `/static/`
+
+- This directory stores non-textual files .yellow[not] to be processed 
+   - `Hugo` simply copies these files over to frontend
+   - e.g., images
+
+--
+
+&lt;br&gt;   
+   
+- By default, files under `/static/` have a matching URL
+   - visitors will be able to view them unprocessed on a browser
+ 
+
+```r
+.
+└── /static/
+    |
+    └── pfofile-photo.jpg     # &lt;- https://janejdoe.netlify.app`/`pfofile-photo.jpg 
+    |
+    └── `files/`                           
+        |
+        └── cv.pdf         # &lt;- https://janejdoe.netlify.app/`files`/cv.pdf
+
+```     
+ 
+ 
+---
+## Content &amp;mdash; `/static/`
+
+- This directory stores non-textual files .yellow[not] to be processed 
+   - `Hugo` simply copies these files over to frontend
+   - e.g., images
+
+
+&lt;br&gt;   
+   
+- By default, files under `/static/` have a matching URL
+   - visitors will be able to view them unprocessed on a browser
+
+&lt;br&gt;
+
+- Adding a file to `/static/` is straightforward
+   - move or copy into it as normal
+   
+&lt;br&gt;
+
+- `/static/` is the right directory to store PDFs
+   - e.g., cv, publications
+
+
+---
+class: action
+
+## Exercises &amp;mdash; Content &amp;mdash; `/static/`
+
+Make one or more files available as-is on your website
+
+  - by placing them under `/static/`
+     - directly, or under a sub-directory
+  - stage, commit, push
+  - observe the change online, in a browser
+
+&lt;br&gt;
+
+Hint:
+
+- static files are not visible in RStudio Viewer
+- [JJD's website](https://janejdoe.netlify.app/) has her cv and two publications available to view as-is
+    - download them from her website
+
+
+<div class="countdown" id="timer_60b879f4" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+## Content &amp;mdash; `/content/`
+
+- This directory stores mostly textual files to be processed 
+
+   - mostly by `Hugo`, some by `blogdown`
+   - e.g., Markdown files
+
+&lt;br&gt;
+
+- Most files under this directory are .yellow-h[plain] Markdown files
+
+  - with the `.md` extension
+  - transformed by `Blackfriday` &amp;mdash; `Hugo`'s Markdown rendering engine, so is Netlify's &amp;mdash; into HTML
+      - no need for `blogdown`, but cannot execute any code
+    
+    
+&lt;br&gt;
+
+- Some are .yellow-h[R] Markdown files
+
+  - with either `.Rmd` or `.Rmarkdown` extension
+      - transformed by `pandoc` &amp;mdash; `blogdown`'s rendering engine
+           - therefore can execute code, thanks to `blogdown`
+      - we will cover these in [Part 8](#part8)  
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Overview
+
+- Markdown is a plain-text file
+
+  - with its own syntax
+      - much easier to write than HTML
+      - the differences between plain and R Markdown syntaxes are minimal
+  - versatile, can be transformed into many different formats, including HTML
+
+--
+
+&lt;br&gt;
+
+- Plain Markdown (`.md`) follows `Blackfriday`'s Markdown syntax
+
+  - a useful guide to the basic MArkdown syntax is available at &lt;https://www.markdownguide.org/basic-syntax/&gt;
+  - a small number of `Blackfriday`-specific extensions are available at &lt;https://github.com/russross/blackfriday&gt;
+
+&lt;br&gt;
+
+- R Markdown (`.Rmd` and `.Rmarkdown`) follows the syntax in Pandoc's Markdown 
+
+   - for the complete rules of the syntax, see [Pandoc User's Guide](https://pandoc.org/MANUAL.html)
+   - for a useful summary of the syntax, see the R Markdown Cheat Sheet
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Strategies
+
+- There are at least two different strategies to deal with `.md` versus `.Rmd` dilemma
+
+  - use `.md` for pages with no data, `.Rmd` for pages with data
+      - maximises the functionality from each
+      - requires learning the small differences if necessary
+    
+  - use `.Rmd` for all pages
+      - requires learning only one syntax
+      - misses the additional functionality in `.md`
+      - folders get cluttered with intermediate files
+
+--
+
+&lt;br&gt;
+
+- The syntax in the following slides of this section will work with both types
+
+  - unless otherwise stated
+      - e.g., see [tasks lists](#task-lists)
+    
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Lines
+
+Multiple spaces on a given line are reduced to one
+
+
+```r
+This is a sentence followed by four spaces.    This is another sentence on the same line.
+```
+
+.out-t[This is a sentence followed by four spaces.    This is another sentence on the same line.]
+
+&lt;br&gt;
+
+Line endings with fewer than two spaces are ignored
+
+
+```r
+This is a sentence followed by one space.
+This is another sentence on a new line.
+```
+
+.out-t[This is a sentence followed by one space. This is another sentence on a new line.]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Hard Brakes
+
+Two or more spaces at the end of lines introduce hard brakes, forcing a new line
+
+
+```r
+This is a sentence followed by two spaces.  
+This is another sentence on a new line.
+```
+
+.out-t[This is a sentence followed by two spaces.  
+This is another sentence on a new line.]
+ 
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Block Quotes
+
+Lines starting with the grater-than sign .yellow-h[&amp;#62;] introduce block quotes
+
+
+```r
+&gt; In God, we trust. All others must bring data. 
+&gt;
+&gt; --- Anonymous 
+```
+
+.out-t[
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In God, we trust. All others must bring data.    
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;mdash; Anonymous
+]
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Paragraphs
+
+One or more&lt;sup&gt;*&lt;/sup&gt; blank lines introduce a new paragraph
+
+
+```r
+This is the first sentence of a paragraph as it is preceded by a blank line. This is the second 
+sentence of that paragraph, which is followed by a blank line. 
+
+This is the first sentence of a *new paragraph* as it is preceded by a blank line. This is the 
+second sentence of that paragraph, which is followed by a blank line.
+```
+
+.out-t[
+
+This is the first sentence of a paragraph as it is preceded by a blank line. This is the second 
+sentence of that paragraph, which is followed by a blank line.
+
+This is the first sentence of a *new paragraph* as it is preceded by a blank line. This is the 
+second sentence of that paragraph, which is followed by a blank line.
+
+]
+
+.footnote[
+
+[*] Multiple blank lines between paragraphs reduced to one.
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Comments
+
+Text with the syntax .inline-c[&lt;!--].inline-c[comments --&gt;] is omitted from output
+
+```md
+&lt;!-- This paragraph needs re-writing --&gt;
+This is the first sentence of a paragraph as it is preceded by a blank line. This is the second 
+sentence of that paragraph, which is followed by a blank line. 
+
+This is the first sentence of a new paragraph &lt;!-- I've removed italics --&gt; as it is preceded 
+by a blank line. This is the second sentence of that paragraph, which is followed by a blank 
+line. 
+
+```
+
+.out-t[
+
+This is the first sentence of a paragraph as it is preceded by a blank line. This is the second 
+sentence of that paragraph, which is followed by a blank line.
+
+This is the first sentence of a new paragraph as it is preceded by a blank line. This is the 
+second sentence of that paragraph, which is followed by a blank line.
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Headers
+
+The number sign .yellow-h[&amp;#x23;] introduces headers; lower levels are created with additional signs &amp;mdash; up to total five levels
+
+.pull-left[
+
+.inline-c[&amp;#x23; Introduction] becomes
+
+.out-t[
+
+# Introduction
+
+]
+
+.inline-c[&amp;#x23;&amp;#x23; 1. Introduction] becomes
+
+.out-t[
+
+## 1. Introduction
+
+]
+
+]
+
+.pull-right[
+
+.inline-c[&amp;#x23;&amp;#x23;&amp;#x23; 3.1 Introduction] becomes
+
+.out-t[
+
+### 3.1 Introduction
+
+]
+
+.inline-c[&amp;#x23;&amp;#x23;&amp;#x23;&amp;#x23; Introduction] becomes
+
+.out-t[
+
+#### Introduction
+
+]
+
+.inline-c[&amp;#x23;&amp;#x23;&amp;#x23;&amp;#x23;&amp;#x23; Introduction] becomes
+
+.out-t[
+
+##### Introduction
+
+]
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Emphases 
+
+A pair of single asterisk .yellow-h[&amp;#42;] or underscore .yellow-h[&amp;#95;] introduces italics
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#42;italics&amp;#42;&lt;/span&gt; becomes .out-t[*italics*]    
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#95;italics&amp;#95;&lt;/span&gt; becomes .out-t[*italics*] as well
+
+&lt;br&gt;
+
+A pair of double asterisks or underscores introduces bold  
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#42;&amp;#42;bold&amp;#42;&amp;#42;&lt;/span&gt; becomes .out-t[**bold**]
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#95;&amp;#95;bold&amp;#95;&amp;#95;&lt;/span&gt; becomes .out-t[**bold**] as well
+
+&lt;br&gt;
+
+These two rules can be combined
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#42;&amp;#42;&amp;#95;bolditalics&amp;#95;&amp;#42;&amp;#42;&lt;/span&gt; becomes .out-t[**_boldsitalics_**]
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#95;&amp;#42;&amp;#42;bolditalics&amp;#42;&amp;#42;&amp;#95;&lt;/span&gt; becomes .out-t[_**bolditalics**_]  as well
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Strikethrough
+
+A pair of double tildes .yellow-h[~] introduces strikethrough
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#126;&amp;#126;strikethrough&amp;#126;&amp;#126;&lt;/span&gt; becomes .out-t[~~strikethrough~~]
+
+&lt;br&gt;
+
+Strikethrough can be combined with italics or bold
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#42;&amp;#42;&amp;#126;&amp;#126;strikebold&amp;#126;&amp;#126;&amp;#42;&amp;#42;&lt;/span&gt; or &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#95;&amp;#95;&amp;#126;&amp;#126;strikebold&amp;#126;&amp;#126;&amp;#95;&amp;#95;&lt;/span&gt;, they both become .out-t[**~~strikebold~~**]
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#126;&amp;#126;&amp;#42;&amp;#42;strikebold&amp;#42;&amp;#42;&amp;#126;&amp;#126;&lt;/span&gt; or &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#126;&amp;#126;&amp;#95;&amp;#95;strikebold&amp;#95;&amp;#95;&amp;#126;&amp;#126;&lt;/span&gt;, they both become .out-t[~~**strikebold**~~] as well
+
+&lt;br&gt;
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#42;&amp;#126;&amp;#126;strikeitalitcs&amp;#126;&amp;#126;&amp;#42;&lt;/span&gt; or &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#95;&amp;#126;&amp;#126;strikeitalitcs&amp;#126;&amp;#126;&amp;#95;&lt;/span&gt;, they both become .out-t[*~~strikeitalitcs~~*] 
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#126;&amp;#126;&amp;#42;strikeitalitcs&amp;#42;&amp;#126;&amp;#126;&lt;/span&gt; or &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#126;&amp;#126;&amp;#95;strikeitalitcs&amp;#95;&amp;#126;&amp;#126;&lt;/span&gt;, they both become .out-t[*~~strikeitalitcs~~*] as well
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Links &amp;mdash; Internal&lt;sup&gt;*&lt;/sup&gt;
+
+You can link text to section headers in the same document
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#91;Conclusion](#conclusion)&lt;/span&gt; becomes .out-t[[Conclusion](#conclusion)], and a click takes the screen to that section
+
+&lt;br&gt;
+
+Multi-word headers need hyphenation
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#91;Literature Review](#literature-review)&lt;/span&gt; becomes .out-t[[Literature Review](#literature-review)], and it works only if the second part is hyphenated
+
+.footnote[
+
+[*] We will cover links to references, figures, and tables later on.
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Links &amp;mdash; External
+
+You can link text to URLs
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#91;click here](https&amp;#58;//janejdoe.netlify.app/)&lt;/span&gt; becomes .out-t[[click here](https://janejdoe.netlify.app/)]
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#60;https&amp;#58;//janejdoe.netlify.app&gt;&lt;/span&gt; becomes .out-t[&lt;https://janejdoe.netlify.app&gt;]
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#91;https&amp;#58;//janejdoe.netlify.app](https&amp;#58;//janejdoe.netlify.app/)&lt;/span&gt; becomes 
+
+.out-t[[https://janejdoe.netlify.app](https://janejdoe.netlify.app/)] as well
+
+--
+
+&lt;br&gt;
+
+You can also link text to email addresses
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#91;email me](mailto&amp;#58;j.j.doe@kriens.edu)&lt;/span&gt;&lt;sup&gt;*&lt;/sup&gt; becomes .out-t[[email me](mailto:j.j.doe@kriens.edu)]
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&amp;#60;j.j.doe@kriens.edu&amp;#62;&lt;/span&gt; becomes .out-t[&lt;j.j.doe@kriens.edu&gt;]
+
+.footnote[
+
+[*] Notice the prefix .yellow-h[mailto:] in the second part of the construct
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Footnotes
+
+Use the .inline-c[[^identifier]] syntax, with identifiers defined elsewhere in the same document, to create a footnote
+
+
+```r
+Dr Doe holds a PhD in rock science.[^1]
+
+[^1]: She defended her thesis in 2017.
+```
+
+.out-t[Dr Doe holds a PhD in rock science.&lt;sup&gt;1&lt;/sup&gt;] 
+   
+&lt;br&gt;
+
+.footnote[
+
+.out-t[[1] She defended her thesis in 2017.]
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Lists
+
+Lines starting with asterisk .yellow-h[&amp;#42;] as well as plus .yellow-h[&amp;#43;] or minus .yellow-h[&amp;#8722;] signs introduce lists
+
+
+```r
+- books
+- articles
+- reports
+```
+
+.out-t[
+
+- books
+- articles
+- reports
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Lists &amp;mdash; Nesting
+
+Lists can be nested within each other, with indentation
+
+
+```r
++ books
++ articles
+    - published
+    - under review
+        + revised and resubmitted
+    - work in progress
+```
+
+.out-t[
+
++ books
++ articles
+    - published
+    - under review
+        + revised and resubmitted
+    - work in progress
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Lists &amp;mdash; Numbering
+
+List items can be numbered
+
+
+```r
+1. books
+2. articles
+    - published
+    - under review
+        + revised and resubmitted
+    - work in progress
+```
+
+.out-t[
+
+1. books
+2. articles
+    - published
+    - under review
+        + revised and resubmitted
+    - work in progress
+
+]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Lists &amp;mdash; Numbering
+
+List items can be numbered
+
+
+```r
+1. books
+2. articles
+    - published
+    - under review
+        + revised and resubmitted
+    - work in progress
+```
+
+.out-t[
+
+1. books
+2. articles
+    - published
+    - under review
+        + revised and resubmitted
+    - work in progress
+
+]
+
+---
+name: task-lists
+
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Lists &amp;mdash; Tasks Lists
+
+Task lists can be created .yellow-h[in plain Markdown, but not in R Markdown]
+
+
+```r
+- [x] books
+- [ ] articles
+    - [ ] published
+    - [x] under review
+        + [x] revised and resubmitted
+    - [ ] work in progress
+```
+
+
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Dashes
+
+Two hyphens grouped together introduce an en-dash
+
+.inline-c[&amp;#8208;&amp;#8208;] becomes .out-t[&amp;ndash;]
+
+&lt;br&gt;
+
+Three hyphens grouped together introduce an em-dash
+
+.inline-c[&amp;#8208;&amp;#8208;&amp;#8208;] becomes .out-t[&amp;mdash;]
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Highlithing
+
+Highlight any piece of text, by putting it in between a pair of backticks &lt;span style="background-color: #ffff88; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&lt;code&gt;&amp;grave;&lt;/code&gt;&lt;/span&gt;
+
+
+&lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&lt;code&gt;&amp;grave;code&amp;grave;&lt;/code&gt;&lt;/span&gt; becomes .inline-c[code]
+
+--
+
+&lt;br&gt;
+
+Highlight blocks of text by putting them in between two lines, each starting with three backticks &lt;span style="background-color: #ffff88; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&lt;code&gt;&amp;grave;&amp;grave;&amp;grave;&lt;/code&gt;&lt;/span&gt;
+
+````md
+```
+df &lt;- mtcars %&gt;% 
+      filter(gear &gt; 3)
+```
+````
+
+becomes
+
+
+```r
+df &lt;- mtcars %&gt;% 
+      filter(gear &gt; 3)
+```
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Tables
+
+The following syntax introduces hand-made tables
+
+.pull-left[
+
+&lt;br&gt;
+
+
+```r
+|First Column | Second Column | 
+|------------ | ------------- |
+|First cell   | First cell    |  
+|Second cell  | Second cell   |
+|Third cell   | Third cell    |
+```
+
+]
+
+.pull-right[
+
+&lt;br&gt;
+
+|  First Column | Second Column |                     
+|:------------- |:--------------| 
+| First cell |  First cell |            
+| Second cell |  Second cell |         
+| Third cell |  Third cell |          
+
+
+]
+
+
+--
+
+&lt;br&gt;
+
+Note that
+
+- .yellow-h[R] Markdown makes it possible to customise hand-made tables futher
+    - we will cover these in [Part 8](#rmd-tables)
+
+---
+## Content &amp;mdash; Markdown Syntax &amp;mdash; Images
+
+The syntax &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;!&amp;#91;&amp;#93;(figurename.extension)&lt;/span&gt; embeds images into HTML outputs
+ 
+- similar to the link syntax, only this time it is preceded by an exclamation mark .yellow-h[!]
+- goes a new line, separate from the text
+- assumes the figure is in the same folder with the Markdown file&lt;sup&gt;*&lt;/sup&gt;
+
+.footnote[
+
+[*] If the image is in `static/`, use a path relative to that directory, e.g., &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;!&amp;#91;&amp;#93;(/media/figure.extension)&lt;/span&gt;
+
+]
+
+---
+## Content &amp;mdash; Images &amp;mdash; Markdown Syntax
+
+
+```r
+![](/media/boards.jpg)
+```
+
+&lt;img src="rbd_workshop_files/images_data/boards.jpg" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+## Content &amp;mdash; Images &amp;mdash; Notes
+
+- Images can also be added through YAML
+   - e.g., to blogposts, publications
+   - using the `image` key
+
+&lt;br&gt;
+
+- These images must be saved in the same directory
+   - as `featured.jpg`
+   - rename or remove it if having them is not desireble
+      - removing the `image` key in YAML is not effective 
+
+---
+class: action
+
+## Exercises &amp;mdash; Content
+
+- Edit one or more Markdown files in your website project
+
+  - observe the change locally, in Viewer
+  - stage, commit, push
+  - observe the change online, in a browser
+  
+&lt;br&gt;  
+
+- Hint, if you are re-creating [JJD's website](https://janejdoe.netlify.app/):
+
+  - add and/or edit one or more of the following files
+       - `/content/home/hero.md`, matching [this widget](https://janejdoe.netlify.app/#hero)
+       - `/content/author/admin/index.md`, matching [this widget](https://janejdoe.netlify.app/#about)
+       - `/content/blog/academic-websites/index.md`, matching [this post](https://janejdoe.netlify.app/blog/academic-websites/)
+       
+ - by copy the text from the website to save time
+      - paste into Markdown, and add the syntax
+
+
+
+<div class="countdown" id="timer_60b87919" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+name: part8
+class: inverse, center, middle
+
+# Part 8. R Markdown
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## R Markdown &amp;mdash; Overview
+
+- R Markdown is a special type of Markdown
+   - can run code, and embed the results from data into HTML
+   - have the `.Rmd` or `.Rmarkdown` extension
+   
+--
+
+&lt;br&gt;
+
+- `Hugo` cannot transform R Markdown into HTML
+   - that is why we need the `blogdown` package
+   - transformation of these files takes places locally on your computer
+   - not remotely at the server &amp;mdash; e.g., Netlify
+
+--
+
+&lt;br&gt;
+
+- R Markdown is very similar to Markdown in terms of syntax
+   - except that it includes code
+      - mostly R code, but could also be python
+
+---
+## R Markdown &amp;mdash; Code &amp;mdash; Overview
+
+Most codes go inside code chunks
+- e.g., code that imports and cleans data, and/or produces tables and/or figures 
+
+````md
+```{r}
+
+df &lt;- mtcars %&gt;%
+      mutate(disp_litre = disp / 61.0237)
+
+```
+````
+
+Codes can also go in line with text
+- .e.g., code that result in a single statistic
+
+
+```r
+The average engine displacement of the cars in the dataset is \`r mean(df$disp_litre)` litres.
+```
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Overview
+
+- Code chunks are delimited spaces between a pair of three backticks
+    - below is an empty chunk for R code
+
+````md
+```{r}
+
+```
+````
+
+--
+
+- `r` is an option of the chunk, indicating that the code in the chunk above should be run by R
+    - it could have been `python`, which we will not cover in this workshop
+    - options go in a pair of curly brackets, on the same line with the first delimiter
+
+--
+
+- Chunks can be placed anywhere in .Rmd documents
+    - their output will be placed instead of, or following,&lt;sup&gt;*&lt;/sup&gt; the code chunk on the website page
+
+.footnote[
+
+[*] Depending on whether code chunks are displayed or not. See the `echo` option in the following slides.
+
+]
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Labels
+
+Label the code chunks right after r
+
+
+````md
+```{r, `tidydata`}
+
+df &lt;- mtcars %&gt;%
+      mutate(disp_litre = disp / 61.0237)
+
+```
+````
+
+--
+
+&lt;br&gt;
+
+Note that
+
+- labels are optional, but recommended because they
+    - can be used in text, to refer to tables or figures that code chunks produce
+    - can help with navigating through error messages     
+&lt;br&gt;    
+- duplicate labels lead to an error
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Options
+
+- Code chunks take options, listed on the same line with the first delimiter, in curly brackets
+
+    - avoid spaces around the equal sign &lt;span style="background-color: #ffff88;"&gt;=&lt;/span&gt; between option tags and values
+        - such spaces might lead to errors    
+&lt;br&gt;
+    - in the example below, the chunk is labelled as `setup`, and and the `include` option is set to `FALSE`
+        - with this option and value, nothing from this chunk will be included in the output document
+
+````md
+```{r, tidydata, `include=FALSE`}
+
+```
+````
+&lt;br&gt;
+
+- The list of options is available at &lt;https://yihui.org/knitr/options&gt;
+
+    - [R Markdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) provides a helpful list as well
+
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Options &amp;mdash; Defaults
+
+Options have default values
+
+- e.g., for `echo`, the default is `TRUE`
+      - `echo`: should the source code printed in the output?  &amp;mdash; yes   
+&lt;br&gt;
+- therefore the following two chunks have the same function
+
+````md
+```{r, tidydata}
+
+```
+````
+
+````md
+```{r, tidydata, `echo=TRUE`}
+
+```
+````
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Options &amp;mdash; Defaults
+
+This chunk prints two things in the output document &amp;mdash; (a) the code and (b) the head of the data frame
+
+````md
+```{r, headdata}
+
+head(df)
+
+```
+````
+
+.out-t[
+
+`head(df)`
+
+]
+
+&lt;hr style="height:10px; visibility:hidden;" /&gt;
+
+.out-t[
+
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb disp_litre
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4   2.621932
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4   2.621932
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1   1.769804
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1   4.227866
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2   5.899347
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1   3.687092
+```
+
+]
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Options
+
+Setting .inline-c[echo=FALSE] prevents the code from being displayed in the output document
+
+````md
+```{r, headdata, `echo=FALSE`}
+
+head(df)
+
+```
+````
+
+This chunk therefore prints one thing in the output document &amp;mdash; the head of the data frame
+
+
+.out-t[
+
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb disp_litre
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4   2.621932
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4   2.621932
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1   1.769804
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1   4.227866
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2   5.899347
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1   3.687092
+```
+
+]
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Other Useful Options
+
+Prevent the result(s) of the source code from being displayed in the output document
+
+````md
+```{r, headdata, `results="hide"`}
+
+head(df)
+
+```
+````
+
+This chunk therefore prints one thing in the output document &amp;mdash; the source code
+
+.out-t[
+
+`head(df)`
+
+]
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Other Useful Options
+
+Cache results for future compilations 
+
+````md
+```{r ... `cache=TRUE`}
+
+```
+````
+
+--
+
+Prevent R from running the code in the chunk altogether 
+
+````md
+```{r ... `eval=FALSE`}
+
+```
+````
+
+--
+
+Prevent messages and/or warnings from being displayed in the output
+
+````md
+```{r ... `error=FALSE`, `message=FALSE`, `warning=FALSE`}
+
+```
+````
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Other Useful Options
+
+Define the .yellow-h[actual] dimensions of figures, in inches
+
+````md
+```{r ... `fig.height=6`, `fig.width=9`}
+
+```
+````
+
+--
+
+Define the size of figures .yellow-h[in the output document], with `out.width` and/or `out.height`
+
+````md
+```{r ... `out.width="50%"`}
+
+```
+````
+
+--
+
+Define the alignment of figures &amp;mdash; `left`, `right`, or `center`
+
+````md
+```{r ... `fig.align="center"`}
+
+```
+````
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; Other Useful Options
+
+Define captions for figures
+
+````md
+```{r ... `fig.caption="A Scatter Plot"`}
+
+```
+````
+
+--
+
+Set the resolution for figures
+
+````md
+```{r ... `dpi=300`}
+
+```
+````
+
+--
+
+Set extra options, which `rmarkdown` will write into the `&lt;img /&gt;` tag
+
+````md
+```{r ... `out.extra='style="display:block;"'`}
+
+```
+````
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; The Setup Chunk
+
+It is recommended to use the first code chunk for general setup, where you can
+
+- define .yellow-h[your own defaults] for chunk options, with `knitr::opts_chunk$set()`
+    - avoids repeating chunk options    
+&lt;br&gt;
+- load the necessary packages    
+&lt;br&gt;
+- import raw data
+
+````md
+```{r, setup, include=FALSE}
+
+# `chunk option defaults`
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+
+# `packages`
+library(dplyr)
+library(ggplot2)
+library(knitr)
+
+# `data`
+df_raw &lt;- mtcars
+
+```
+````
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; The Setup Chunk &amp;mdash; Data
+
+Note that the data source can be anywhere that R can access
+
+````md
+```{r, setup, include=FALSE}
+
+...
+
+# this dataset is `available online`
+df_online &lt;- read.csv("http://www.parlgov.org/static/data/development-cp1252/view_party.csv")
+
+# this dataset is `in the same directory as my .Rmd file`
+df_local &lt;- read.csv("view_cabinet.csv")
+
+```
+````
+
+---
+## R Markdown &amp;mdash; Code Chunks &amp;mdash; The Data Chunk
+
+I recommend using the second chunk for the main operations&lt;sup&gt;*&lt;/sup&gt; on raw data
+- e.g., for data cleaning and other transformations
+- some minor transformations could be left to lower chunks
+    - e.g., capitalizing variable names for figures
+        
+````md
+```{r, data, echo=FALSE ...}
+
+df &lt;- df_raw `%&gt;%`
+      `mutate(disp_litre = disp / 61.0237)`
+
+```
+````
+
+---
+## R Markdown &amp;mdash; Inline Code &amp;mdash; Overview
+
+Code can also be incorporated in text, with the &lt;span style="background-color: #e5e5e5; border-radius: 3px; padding: 4px; font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;"&gt;&lt;code&gt;&amp;grave;r &amp;grave;&lt;/code&gt;&lt;/span&gt; syntax
+
+- unlike chunks, these do not take options   
+&lt;br&gt;
+- the output document will display the result of the code
+    - in the exact place of the source code   
+&lt;br&gt;
+- the result of the code will have the same formatting with the text
+
+---
+## R Markdown &amp;mdash; Inline Code &amp;mdash; Examples
+
+
+```r
+If we multiply _pi_ by 5, we get \`r pi * 5`.
+```
+
+.out-t[If we multiply _pi_ by 5, we get 15.7079633.]
+
+&lt;hr style="height:10px; visibility:hidden;" /&gt;
+
+
+```r
+The average the engine displacement of the cars in the dataset is \`r mean(df$disp_litre)` 
+litres, which would round to \`r round(mean(df$disp_litre), digits = 1)`.
+```
+
+.out-t[The average the engine displacement of the cars in the dataset is 3.7808569, which would round to 3.8.]
+
+&lt;hr style="height:10px; visibility:hidden;" /&gt;
+
+
+```r
+__Only \`r nrow(subset(df, gear == 5))` cars__ in the dataset have five forward gears.
+```
+
+.out-t[__Only 5 cars__ in the dataset have five forward gears.]
+
+---
+## R Markdown &amp;mdash; Figures
+
+Place code that produces figures in code chunks
+
+.pull-left-c[
+
+````md
+```{r, scatterplot, fig.cap = "A scatterplot of cars.", echo=FALSE}
+
+ggplot(data = df, mapping = aes(x = wt, y = mpg, color = cyl)) +
+  geom_point() +
+  scale_colour_gradient(name = "Cylinders", high = "#132B43", low = "#56B1F7",
+                        breaks = c(4, 6, 8)) +
+  labs(x = "Weight", y = "Miles/Gallon") +
+  theme_bw()
+
+```
+````
+
+]
+
+.pull-right-c[
+
+![](rbd_workshop_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
+
+Figure 1. A scatterplot of cars.
+
+]
+
+---
+name: cr-figure
+
+## R Markdown &amp;mdash; Figures &amp;mdash; Cross-References
+
+Use the following syntax to refer to figures
+
+.pull-left-c[
+
+
+```r
+See Figure `\@ref`(`fig`:`scatterplot`) below.
+```
+
+````md
+```{r, `scatterplot`, fig.cap = "A scatterplot of cars.", echo=FALSE}
+
+ggplot(data = df, mapping = aes(x = wt, y = mpg, color = cyl)) +
+  geom_point() +
+  scale_colour_gradient(name = "Cylinders", high = "#132B43", low = "#56B1F7",
+                        breaks = c(4, 6, 8)) +
+  labs(x = "Weight", y = "Miles/Gallon") +
+  theme_bw()
+
+```
+````
+
+]
+
+.pull-right-c[
+
+.out-t[See Figure [1](#cr-figure) below.]
+
+![](rbd_workshop_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Figure 1. A scatterplot of cars.
+
+]
+
+---
+## R Markdown &amp;mdash; Tables &amp;mdash;
+
+Place code that produces .yellow-h[HTML] tables in code chunks
+
+````md
+```{r, headdata, echo=FALSE}
+
+kable(head(df, 3), caption = "First three rows in the dataset")
+
+```
+````
+
+&lt;br&gt;
+
+
+|              |  mpg| cyl| disp|  hp| drat|    wt|  qsec| vs| am| gear| carb| disp_litre|
+|:-------------|----:|---:|----:|---:|----:|-----:|-----:|--:|--:|----:|----:|----------:|
+|Mazda RX4     | 21.0|   6|  160| 110| 3.90| 2.620| 16.46|  0|  1|    4|    4|   2.621932|
+|Mazda RX4 Wag | 21.0|   6|  160| 110| 3.90| 2.875| 17.02|  0|  1|    4|    4|   2.621932|
+|Datsun 710    | 22.8|   4|  108|  93| 3.85| 2.320| 18.61|  1|  1|    4|    1|   1.769804|
+
+Table 1. First three rows in the dataset.
+
+
+---
+name: cr-table
+
+## R Markdown &amp;mdash; Tables &amp;mdash; Cross-References
+
+Use the following syntax to refer to tables
+
+
+
+```r
+See Table \@ref(`tab`:`headdata`) below.
+```
+
+````md
+```{r, `headdata`, echo=FALSE}
+
+kable(head(df, 3), caption = "First three rows in the dataset")
+
+```
+````
+
+&lt;br&gt;
+
+.out-t[See Table [1](#cr-table) below.]
+
+
+|              |  mpg| cyl| disp|  hp| drat|    wt|  qsec| vs| am| gear| carb| disp_litre|
+|:-------------|----:|---:|----:|---:|----:|-----:|-----:|--:|--:|----:|----:|----------:|
+|Mazda RX4     | 21.0|   6|  160| 110| 3.90| 2.620| 16.46|  0|  1|    4|    4|   2.621932|
+|Mazda RX4 Wag | 21.0|   6|  160| 110| 3.90| 2.875| 17.02|  0|  1|    4|    4|   2.621932|
+|Datsun 710    | 22.8|   4|  108|  93| 3.85| 2.320| 18.61|  1|  1|    4|    1|   1.769804|
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Table 1. First three rows in the dataset.
+
+---
+name: rmd-tables
+
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+The following syntax, outside code chunks, introduces tables&lt;sup&gt;*&lt;/sup&gt;
+  
+.pull-left[
+
+&lt;br&gt;
+
+
+```r
+First Column  Second Column 
+------------  ------------- 
+First cell    First cell      
+Second cell   Second cell   
+Third cell    Third cell  
+```
+
+]
+
+.pull-right[
+
+&lt;br&gt;
+
+|  First Column | Second Column |                     
+|:------------- |:--------------| 
+| First cell |  First cell |            
+| Second cell |  Second cell |         
+| Third cell |  Third cell |          
+
+
+]
+
+
+.footnote[
+
+&lt;sup&gt;*&lt;/sup&gt;  The table syntax on this and following seven slides will work in R Markdown files only &amp;mdash; they will not work in plain Markdown.
+
+]
+---
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+The position of headers, relative to their line underneath, defines column alignments
+
+.pull-left[
+
+&lt;br&gt;
+
+
+```r
+Left-Aligned          Centered   
+----------------  ----------------
+First cell        First cell      
+Second cell       Second cell   
+Third cell        Third cell  
+```
+
+]
+
+.pull-right[
+
+&lt;br&gt;
+
+| Left-Aligned &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; | &amp;nbsp;&amp;nbsp;&amp;nbsp; Centered  &amp;nbsp;&amp;nbsp;&amp;nbsp; |               
+|:-------------------------------------  | :-----------------------------------: | 
+| First cell | First cell | 
+| Second cell| Second cell | 
+| Third cell | Third  cell |       
+
+
+]
+
+---
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+A line starting with a colon, placed before or after tables, introduces captions
+
+&lt;br&gt;
+
+.pull-left[
+
+
+```r
+    Centered         Right-Aligned 
+----------------  ----------------
+First cell        First cell      
+Second cell       Second cell   
+Third cell        Third cell  
+                                                                               
+*: A hand-made table with R Markdown
+```
+
+]
+
+.pull-right[
+
+&lt;center&gt;Table 1: A hand-made table with R Markdown&lt;/center&gt; 
+&lt;br&gt;
+
+| &amp;nbsp;&amp;nbsp;&amp;nbsp; Centered  &amp;nbsp;&amp;nbsp;&amp;nbsp; |  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Right-Aligned |               
+|:----------------------------------------------: | --------------------------------------------------: | 
+| First cell | First cell | 
+| Second cell| Second cell | 
+| Third cell | Third  cell |       
+
+
+]
+
+---
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+The caption line itself needs to be surrounded by empty lines
+
+&lt;br&gt;
+
+.pull-left[
+
+
+```r
+    Centered         Right-Aligned 
+----------------  ----------------
+First cell        First cell      
+Second cell       Second cell   
+Third cell        Third cell  
+*  
+: A hand-made table with R Markdown                                      
+*  
+```
+
+]
+
+.pull-right[
+
+&lt;center&gt;Table 1: A hand-made table with R Markdown&lt;/center&gt; 
+&lt;br&gt;
+
+| &amp;nbsp;&amp;nbsp;&amp;nbsp; Centered  &amp;nbsp;&amp;nbsp;&amp;nbsp; |  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Right-Aligned |               
+|:----------------------------------------------: | --------------------------------------------------: | 
+| First cell | First cell | 
+| Second cell| Second cell | 
+| Third cell | Third  cell |       
+
+
+]
+
+---
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+Tables are numbered automatically
+
+&lt;br&gt;
+
+.pull-left[
+
+
+```r
+: A hand-made table with R Markdown 
+
+    Centered         Right-Aligned 
+----------------  ----------------
+First cell        First cell      
+Second cell       Second cell   
+Third cell        Third cell  
+```
+
+]
+
+.pull-right[
+
+&lt;center&gt;.yellow-h[Table 1]: A hand-made table with R Markdown&lt;/center&gt; 
+&lt;br&gt;
+
+| &amp;nbsp;&amp;nbsp;&amp;nbsp; Centered  &amp;nbsp;&amp;nbsp;&amp;nbsp; |  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Right-Aligned |               
+|:----------------------------------------------: | --------------------------------------------------: | 
+| First cell | First cell | 
+| Second cell| Second cell | 
+| Third cell | Third  cell |       
+
+
+]
+
+---
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+Grid tables, with the following syntax, can handle complex cells with multiple lines and/or lists
+
+.pull-left[
+
+
+```r
++--------------------+--------------------+
+| First Column       | Second Column      | 
++====================+====================+
+| - First item       | First cell         | 
+| - Second item      |                    | 
+| - Third item       |                    |
++--------------------+--------------------+
+|Second cell         | Second cell with a | 
+|                    | long text          | 
++--------------------+--------------------+
+| Third cell         | Third cell         | 
+|                    |                    | 
++--------------------+--------------------+
+
+: A grid table with multi-line cells                                                         
+```
+
+]
+
+.pull-right[
+
+&lt;br&gt;
+&lt;center&gt;Table 1: A grid table with multi-line cells&lt;/center&gt; 
+&lt;br&gt;
+
+| First Column &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; | Second Column &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; |
+|:------------------------------------------  |:--------------------------------------------------| 
+| - First item &lt;br&gt; - Second item &lt;br&gt; - Third item | First cell                                        |         
+| Second cell                                       | Second cell with a long&lt;br&gt;text                   | 
+| Third cell                                        | Third cell                                        | 
+
+]
+
+---
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made
+
+Grid tables can be aligned as well, with colons at the boundaries of the header separator&lt;sup&gt;*&lt;/sup&gt;
+
+.pull-left[
+
+
+```r
++--------------------+--------------------+
+| Left-Aligned       | Centered           | 
+*+:===================+:==================:+
+| - First item       | First cell         | 
+| - Second item      |                    | 
+| - Third item       |                    |
++--------------------+--------------------+
+|Second cell         | Second cell with a | 
+|                    | long text          | 
++--------------------+--------------------+
+| Third cell         | Third cell         | 
+|                    |                    | 
++--------------------+--------------------+
+
+: A grid table with multi-line cells                                                         
+```
+
+]
+
+.pull-right[
+
+&lt;br&gt;
+&lt;center&gt;Table 1: A grid table with multi-line cells&lt;/center&gt; 
+&lt;br&gt;
+
+| Left-Aligned &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; | &amp;nbsp;&amp;nbsp;Centered &amp;nbsp;&amp;nbsp; |
+|:--------------------------------------|:---------------------------------:| 
+| - First item &lt;br&gt; - Second item &lt;br&gt; - Third item | First cell |         
+| Second cell | Second cell with a&lt;br&gt;long text | 
+| Third cell | Third cell | 
+
+
+]
+
+.footnote[
+
+&lt;sup&gt;*&lt;/sup&gt; Use .yellow-h[:=] for left-aligned, .yellow-h[:=:] for centered, .yellow-h[=:] for right-aligned columns. 
+
+]
+
+---
+name: hm-table
+## R Markdown &amp;mdash; Tables &amp;mdash; Hand-Made &amp;mdash; Cross-References
+
+Use the following syntax to refer to hand-made tables
+
+
+.pull-left[
+
+
+```r
+See Table \@ref(`tab`:`handmade`) below.
+```
+
+
+```r
+    Centered         Right-Aligned 
+----------------  ----------------
+First cell        First cell      
+Second cell       Second cell   
+Third cell        Third cell  
+                                                                              
+: `(\#tab:handmade)` A hand-made table with R Markdown                                      
+```
+
+]
+
+.pull-right[
+
+.out-t[See Table [1](#mh-table) below.]
+
+&lt;br&gt;
+
+| &amp;nbsp;&amp;nbsp;&amp;nbsp; Centered  &amp;nbsp;&amp;nbsp;&amp;nbsp; |  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Right-Aligned |               
+|:----------------------------------------------: | --------------------------------------------------: | 
+| First cell | First cell | 
+| Second cell| Second cell | 
+| Third cell | Third  cell |       
+
+&lt;br&gt;
+&lt;center&gt;Table 1: A hand-made table with R Markdown&lt;/center&gt; 
+
+]
+
+---
+class: action
+
+## Exercises &amp;mdash; R Markdown
+
+- Add and/or edit one or more R Markdown files in your website project
+
+  - observe the change locally, in Viewer
+  - stage, commit, push
+  - observe the change online, in a browser
+  
+&lt;br&gt;  
+
+- Hint, if you are re-creating [JJD's website](https://janejdoe.netlify.app/):
+
+  - add and edit the following file
+       - `/content/post/cabinet-size/index.Rmd`, matching [this blogpost](https://janejdoe.netlify.app/post/cabinet-size/)
+       
+ - by copy the text from the website to save time
+      - paste into R Markdown, and add the code and syntax
+
+
+<div class="countdown" id="timer_60b87b00" style="top:0;right:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">30</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+name: references
+class: inverse, center, middle
+
+# References
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+---
+## References
+
+Dowle, M. and Srinivasan, A. (2021). [data.table: Extension of 'data.frame'](https://cran.r-project.org/web/packages/data.table/index.html). R package, version 1.14.0.
+
+Sievert, C., Parmer, C.,  Hocking, T., Chamberlain, S., Ram, K., Corvellec, M., &amp; Despouy, P. (2021). [plotly: Create Interactive Web Graphics via 'plotly.js'](https://cran.r-project.org/web/packages/plotly/index.html). R package, version 4.9.3.
+
+Wickham, H. and Grolemund, G. (2019). R for data science. O'Reilly. Open access at [https://r4ds.had.co.nz](https://r4ds.had.co.nz/).
+
+Wickham, H., Chang, W., Henry, L., Pedersen, T. L., Takahashi, K., Wilke, C., Woo, K., Yutani, H. and Dunnington, D. (2021). [dplyr: A grammar of data manipulation](https://cran.r-project.org/web/packages/dplyr/index.html). R package, version 1.0.5.
+
+Wickham, H., François, W., Henry L. and Müller, K. (2020). [ggplot2: Create elegant data visualisations using the grammar of graphics](https://cran.r-project.org/web/packages/ggplot2/index.html). R package, version 3.3.3.
+
+Xie, Y. (2021). [knitr: A general-purpose package for dynamic report generation in R](https://cran.r-project.org/web/packages/knitr/index.html). R package, version 1.33.
+
+Xie, Y., Dervieux, C., and  Hill, A. P. (2021a). [blogdown: Create blogs and websites with R Markdown](https://cran.r-project.org/web/packages/blogdown/index.html). R package, version 1.3.
+
+Xie, Y., Thomas, A., and Hill, A. P. (2021b). blogdown: Creating Websites with R Markdown. Open access at [https://bookdown.org/yihui/blogdown](https://bookdown.org/yihui/blogdown/).
+
+---
+class: middle, center
+
+## The workshop ends here.
+## Congratulations for making it this far, and
+## thank you for joining me!
+
+.footnote[
+
+[Back to the contents slide](#contents-slide).
+
+]
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
