@@ -2,9 +2,7 @@
 header:
   caption: ""
   image: ""
+layout: book
 title: Courses
-type: page
-view: 2
 ---
 
-I teach the following courses:

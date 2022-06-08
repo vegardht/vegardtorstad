@@ -1,3 +1,0 @@
-User-agent: *
-
-Sitemap: https://vegardtorstad.netlify.app/sitemap.xml
