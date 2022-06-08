@@ -8,10 +8,10 @@ main:
     url: '#projects'
     weight: 30
   - name: CV
-    url: 'static/files/'
+    url: 'static/files/Torstad_CV_apr22.pdf'
     weight: 40
   - name: Publications
-    url: '#Publications'
+    url: '#publications'
     weight: 50
   - name: Contact
     url: '#contact'
