@@ -18,9 +18,9 @@ email: "v.h.torstad@stv.uio.no"
 highlight_name: false
 
 interests:
-- Environmental politics
+- Climate/environmental politics
 - Global governance
-- Legitimacy
+- International institutions
 
 organizations:
 - name: University of Oslo
@@ -46,7 +46,7 @@ superuser: true
 
 title: 
 ---
-I am a Postdoctoral Fellow/Assistant Professor at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate + environmental politics, global governance, and international institutions. 
+I am a Postdoctoral Fellow/Assistant Professor at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate/environmental politics, global governance, and international institutions. 
 
 I completed my PhD at the European University Institute in 2021.
 
