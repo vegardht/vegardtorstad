@@ -45,4 +45,4 @@ I am a Postdoctoral Fellow at the Department of Political Science, University of
 
 I completed my PhD at the European University Institute in 2021.
 
-{{< icon name="download" pack="fas" >}} {{< staticref "../files/Torstad_CV_apr22.pdf" "newtab" >}}Download my CV{{< /staticref >}} for more information.
+{{< icon name="download" pack="fas" >}} {{< staticref "../files/cv_torstad_23sep21.pdf" "newtab" >}}Download my CV{{< /staticref >}} for more information.

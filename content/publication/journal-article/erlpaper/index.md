@@ -3,8 +3,6 @@
 title: "The domestic politics of international climate commitments: which factors explain cross-country variation in NDC ambition?"
 authors:
 - admin
-- Håkon Sælen
-- Live Bøyum
 publication: "*Environmental Research Letters 15* (2), 024021"
 date: "2020-02-11"
 url_code: https://doi.org/10.7910/DVN/ZPDOYT

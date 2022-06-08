@@ -29,6 +29,7 @@ address:
   country: Norway
 office_hours:
   - by appointment
+appointment_url: 'https://calendly.com'
 contact_links:
   - icon: twitter
     icon_pack: fab
