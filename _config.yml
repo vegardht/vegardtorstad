@@ -19,8 +19,8 @@ url: https://vegardtorstad.github.io
 ## in terminal: 'bundle ex jekyll serve'. The website will be hosted at
 ## 'localhost:4000'.
 
-# repository: grantmcdermott/grantmcdermott.github.io
-github: [metadata]
+repository: https://github.com/vegardht/vegardtorstad
+github: https://github.com/vegardht/vegardtorstad
 email: v.h.torstad@stv.uio.no
 description: >- # this means to ignore newlines in the text below
   Vegard Tørstad's personal website.
@@ -66,7 +66,7 @@ author:
   name   : "Vegard Tørstad"
   avatar : ""
   bio    : 
-    Political Science Postdoc at University of Oslo
+    Political Science Postdoc (assistant professor) at University of Oslo
     Interested in environmental politics and international organizations.
   links:
     - label: "Website"
