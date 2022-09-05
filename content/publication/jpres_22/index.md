@@ -9,6 +9,7 @@ featured: false
 image:
   preview_only: true
 publication: "*Journal of Peace Research*"
+url_pdf: media/torstad-UNSC-postprint-sep22.pdf
 file: torstad-UNSC-postprint-sep22.pdf
 
 doi: 
