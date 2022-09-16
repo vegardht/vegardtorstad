@@ -11,7 +11,7 @@ education:
     year: 2016
   - course: BA in Political Science
     institution: University of Oslo
-    year: 2011
+    year: 2014
     
 email: "v.h.torstad@stv.uio.no"
 
