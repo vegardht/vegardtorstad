@@ -1,5 +1,5 @@
 ---
-bio: My research interests include environmental politics, global governance and legitimacy.
+bio: My research interests include climate and environmental politics, global governance and legitimacy.
 
 education:
   courses:
@@ -26,7 +26,7 @@ organizations:
 - name: University of Oslo
   url: https://www.sv.uio.no/isv/english/
   
-role: Postdoctoral Fellow
+role: Assistant Professor
 
 social:
 - icon: envelope
@@ -46,7 +46,7 @@ superuser: true
 
 title: 
 ---
-I am a Postdoctoral Fellow/Assistant Professor at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate/environmental politics, global governance, and international institutions. 
+I am an Assistant Professor at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate and environmental politics, global governance, and international institutions. 
 
 I completed my PhD at the European University Institute in 2021.
 
