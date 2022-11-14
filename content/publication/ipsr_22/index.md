@@ -9,8 +9,8 @@ featured: false
 image:
   preview_only: true
 publication: "*International Political Science Review*"
-url_pdf: media/clrtap_paper-nov-22
-file: clrtap_paper-nov-22
+url_pdf: media/clrtap_paper-nov-22.pdf
+file: clrtap_paper-nov-22.pdf
 
 doi: 
 ---
