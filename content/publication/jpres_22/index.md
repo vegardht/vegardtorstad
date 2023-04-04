@@ -1,6 +1,6 @@
 ---
 title: "Can Transparency Strengthen the Legitimacy of International Institutions? Evidence from the UN Security Council"
-date: 2022-01-01
+date: 2023-03-22
 publishDate: 
 authors: ["Vegard Tørstad"]
 publication_types: ["2"]
@@ -9,8 +9,8 @@ featured: false
 image:
   preview_only: true
 publication: "*Journal of Peace Research*"
-url_pdf: media/torstad-UNSC-postprint-sep22.pdf
-file: torstad-UNSC-postprint-sep22.pdf
+url_pdf: media/torstad_unsc_jpr.pdf
+file: torstad_unsc_jpr.pdf
 
 doi: 
 ---
