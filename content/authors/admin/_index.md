@@ -50,4 +50,4 @@ I am an Assistant Professor at the [Department of Political Science](https://www
 
 I completed my PhD at the European University Institute in 2021.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Torstad_CV_apr22.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_4apr23.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
