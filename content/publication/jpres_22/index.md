@@ -9,8 +9,7 @@ featured: false
 image:
   preview_only: true
 publication: "*Journal of Peace Research*"
-url_pdf: media/torstad_unsc_jpr.pdf
-file: torstad_unsc_jpr.pdf
+url_pdf: "https://journals.sagepub.com/doi/full/10.1177/00223433221123996"
 
 doi: 
 ---
