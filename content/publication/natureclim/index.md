@@ -5,7 +5,7 @@ publishDate:
 authors: ["Jonathan Kuyper", "Vegard Tørstad"]
 publication_types: ["2"]
 abstract: "Non-state actors play an essential role in the fabric of global climate governance. Here we propose four tailored strategies that non-state actors can mobilize to advance climate action among states and harness the potential of the global stocktake."
-featured: true
+featured: false
 image:
   preview_only: true
 publication: "*Nature Climate Change*"
