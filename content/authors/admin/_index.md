@@ -46,8 +46,8 @@ superuser: true
 
 title: 
 ---
-I am an Assistant Professor at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate and environmental politics, global governance, and international institutions. 
+I am a Postdoctoral Fellow at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate and environmental politics, global governance, and international institutions. 
 
 I completed my PhD at the European University Institute in 2021.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_4apr23.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_25sep23.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
