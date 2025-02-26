@@ -26,7 +26,7 @@ organizations:
 - name: University of Oslo
   url: https://www.sv.uio.no/isv/english/
   
-role: Assistant Professor
+role: Postdoctoral Fellow
 
 social:
 - icon: envelope
@@ -50,4 +50,4 @@ I am a Postdoctoral Fellow at the [Department of Political Science](https://www.
 
 I completed my PhD at the European University Institute in 2021.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_25sep23.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_2025.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
