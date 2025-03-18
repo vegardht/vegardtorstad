@@ -6,6 +6,9 @@ education:
   - course: PhD in Political Science
     institution: European University Institute, Florence
     year: 2021
+  - course: MRes in Political Science
+    institution: European University Institute, Florence
+    year: 2017
   - course: MSc in International Relations
     institution: Sciences Po, Paris
     year: 2016
@@ -13,7 +16,7 @@ education:
     institution: University of Oslo
     year: 2014
     
-email: "v.h.torstad@stv.uio.no"
+email: "vhtorstad@fni.no"
 
 highlight_name: false
 
@@ -24,7 +27,7 @@ interests:
 
 organizations:
 - name: Fridtjof Nansen Institute
-  url: https://www.sv.uio.no/isv/english/](https://www.fni.no/
+  url: https://www.fni.no/
   
 role: Senior Researcher
 
