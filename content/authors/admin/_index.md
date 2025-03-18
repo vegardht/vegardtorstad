@@ -46,7 +46,7 @@ superuser: true
 
 title: 
 ---
-I am a Postdoctoral Fellow at the [Department of Political Science](https://www.sv.uio.no/isv/english/), University of Oslo. My interests include climate and environmental politics, global governance, and international institutions. 
+I am a Senior Researcher at the [Fridtjof Nansen Institute](https://www.fni.no/), Oslo. My interests include climate and environmental politics, global governance, and international institutions. 
 
 I completed my PhD at the European University Institute in 2021.
 
