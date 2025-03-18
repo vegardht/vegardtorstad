@@ -23,10 +23,10 @@ interests:
 - International institutions
 
 organizations:
-- name: University of Oslo
-  url: https://www.sv.uio.no/isv/english/
+- name: Fridtjof Nansen Institute
+  url: https://www.sv.uio.no/isv/english/](https://www.fni.no/
   
-role: Postdoctoral Fellow
+role: Senior Researcher
 
 social:
 - icon: envelope
