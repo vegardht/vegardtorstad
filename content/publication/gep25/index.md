@@ -12,5 +12,4 @@ image:
 publication: "*Global Environmental Politics*"
 url_pdf: "https://direct.mit.edu/glep/article/25/2/27/128805/The-Ambition-Trap-How-Overpromising-on-Climate"
 
-doi:10.1162/glep_a_00777 
 ---
