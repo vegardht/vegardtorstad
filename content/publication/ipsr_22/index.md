@@ -1,6 +1,6 @@
 ---
 title: "The Relative Effectiveness of Overlapping International Institutions: EU versus UN Regulations of Air Pollution"
-date: 2022-01-01
+date: 2023-01-01
 publishDate: 
 authors: ["Andreas K. Tveit", "Vegard Tørstad"]
 publication_types: ["2"]
