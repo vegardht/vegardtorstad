@@ -88,17 +88,16 @@ show_related = {docs = true, page = false, post = true, project = true, publicat
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "v.h.torstad@stv.uio.no"
+email = "vhtorstad@fni.no"
 phone = ""
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "Gullhaug Torg 1", city = "Oslo", region = "Oslo", postcode = "0484", country = "Norway", country_code = "NO"}
+address = {street = "Fridtjof Nansens Vei 17A, city = "Lysaker", region = "Bærum", postcode = "1366", country = "Norway", country_code = "NO"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-coordinates = {latitude = "59.950639", longitude = "10.766592"} 
-
+coordinates = {latitude = "59.90580527833634", longitude = "10.63489148870924"} 
 # Office hours
 # A list of your office hours. To remove, set to an empty list `[]`.
 office_hours = ["By appointment"]
