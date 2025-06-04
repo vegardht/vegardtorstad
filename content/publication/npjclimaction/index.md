@@ -1,6 +1,6 @@
 ---
 title: "Macroeconomic crises and green recovery spending: Introducing the CLIMREC dataset"
-date: 2024-05-01
+date: 2025-02-01
 publishDate: 
 authors: ["Vegard Tørstad", "Tatjana Stankovic", "Jonas Nahm", "Jon Hovi", "Johannes Urpelainen"]
 publication_types: ["2"]
