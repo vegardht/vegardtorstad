@@ -1,6 +1,6 @@
 ---
 title: "Does distributive conflict explain variation in green stimulus spending? Evidence from 40 major economies during the Global Financial Crisis and the Covid-19 recession"
-date: 2025-02-01
+date: 2025-10-10
 publishDate: 
 authors: ["Vegard Tørstad", "Jon Hovi", "Håkon Sælen"]
 publication_types: ["2"]
