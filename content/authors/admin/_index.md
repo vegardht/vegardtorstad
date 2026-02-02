@@ -53,4 +53,4 @@ I am a Senior Researcher at the [Fridtjof Nansen Institute](https://www.fni.no/)
 
 I completed my PhD at the European University Institute in 2021.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_2025.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/Academic_CV_2026.pdf" "newtab" >}}curriculum vitae{{< /staticref >}}.
