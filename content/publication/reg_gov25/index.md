@@ -11,5 +11,6 @@ image:
   preview_only: true
 publication: "*Regulation & Governance*"
 url_pdf: "https://onlinelibrary.wiley.com/doi/10.1111/rego.70071"
+url_postprint: "/static/reg_gov_2025_postprint.pdf"
 
 ---
