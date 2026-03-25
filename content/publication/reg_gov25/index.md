@@ -10,6 +10,9 @@ featured: false
 image:
   preview_only: true
 publication: "*Regulation & Governance*"
-url_pdf: "/static/reg_gov_2025_postprint.pdf"
+url_pdf: "https://onlinelibrary.wiley.com/doi/10.1111/rego.70071"
+links:
+  - name: "Postprint"
+    url: "media/reg_gov_2025_postprint.pdf"
 
 ---
