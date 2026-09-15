@@ -12,5 +12,5 @@ image:
 publication: "Cambridge University Press"
 links:
   - name: "Publisher"
-    url: "https://www.cambridge.org/](https://www.cambridge.org/core/books/after-reform/424BD9EA6935A745EF44B9866E69123A"
+    url: "https://www.cambridge.org/core/books/after-reform/424BD9EA6935A745EF44B9866E69123A"
 ---
